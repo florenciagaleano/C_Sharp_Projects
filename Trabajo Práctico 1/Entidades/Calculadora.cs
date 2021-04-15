@@ -16,7 +16,7 @@ namespace Entidades
         public static double Operar(Numero num1,Numero num2,string operador)
         {
             char operadorParseado = '+';//si el TryParse no funciona la operacion sera de suma
-            double resultado;
+            double resultado = 0;
 
             if( Char.TryParse(operador,out operadorParseado) )
             {
@@ -28,7 +28,7 @@ namespace Entidades
                     case "*":
                         resultado = num1 * num2;
                         break;
-                    case "/"://VER QUE HACER CON DIVISION VAMOS FLOR QUE VOS PODES ♥
+                    case "/":
                         resultado = num1 / num2;
                         break;
                     default:
@@ -37,7 +37,7 @@ namespace Entidades
                 }
             }
 
-            return 0;
+            return resultado;
         }
 
         private static string ValidarOperador(char operador)

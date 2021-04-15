@@ -39,5 +39,28 @@ namespace MiCalculadora
         {
             this.Limpiar();
         }
+
+        private void btnOperar_Click(object sender, EventArgs e)
+        {
+            double resultado = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text);
+            this.lblResultado.Text = resultado.ToString();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnConvertirABinario_Click(object sender, EventArgs e)
+        {
+            Numero aux = new Numero();
+            this.lblResultado.Text = aux.DecimalBinario(lblResultado.Text);
+        }
+
+        private void btnConvertirADecimal_Click(object sender, EventArgs e)
+        {
+            Numero aux = new Numero();
+            this.lblResultado.Text = aux.BinarioDecimal(lblResultado.Text);
+        }
     }
 }

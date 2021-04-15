@@ -135,14 +135,14 @@ namespace Entidades
         }
         public static double operator /(Numero n1, Numero n2)
         {
-            double retorno = Double.MinValue;
 
-            if(n2.numero != 0)
+            if (n2.numero == 0)
             {
-                retorno = n1 / n2;
+                return Double.MinValue;
             }
 
-            return retorno;
+            return n1.numero / n2.numero;
+
         }
         #endregion
     }
