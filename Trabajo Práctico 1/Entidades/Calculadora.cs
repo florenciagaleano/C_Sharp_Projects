@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*• El método ValidarOperador será privado y estático. Deberá validar que el operador
-recibido sea +, -, / o *. Caso contrario retornará +.
-  • El método Operar será de clase: validará y realizará la operación pedida entre
-ambos números.*/
-
 namespace Entidades
 {
     public static class Calculadora
     {
+        /// <summary>
+        /// Valida al operador pasado y realiza la operación pedida entre los números pasados por parámetro
+        /// </summary>
+        /// <param name="num1">Primer operando</param>
+        /// <param name="num2">Segundo operando</param>
+        /// <param name="operador">Operador que indica el tipo de operación a realizar</param>
+        /// <returns>El resultado de la operación</returns>
         public static double Operar(Numero num1,Numero num2,string operador)
         {
             char operadorParseado = '+';//si el TryParse no funciona la operacion sera de suma
@@ -40,6 +42,11 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Valida que el operador sea valido y si no lo es devuelve un mas
+        /// </summary>
+        /// <param name="operador">Operador a validar</nparam>
+        /// <returns>El operador pasado en forma de cadea o un "+" si no se paso un operador válido</returns>
         private static string ValidarOperador(char operador)
         {
             string ret;
