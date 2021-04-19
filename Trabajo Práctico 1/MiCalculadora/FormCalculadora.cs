@@ -67,6 +67,8 @@ namespace MiCalculadora
         {
             double resultado = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text);
             this.lblResultado.Text = resultado.ToString();
+            this.btnConvertirABinario.Enabled = true;
+            this.btnConvertirADecimal.Enabled = false;//esta deshabilitado porque el resultado va a ser decimal
         }
 
         /// <summary>
@@ -88,6 +90,8 @@ namespace MiCalculadora
         {
             Numero aux = new Numero();
             this.lblResultado.Text = aux.DecimalBinario(lblResultado.Text);
+            this.btnConvertirABinario.Enabled = false;
+            this.btnConvertirADecimal.Enabled = true;
         }
 
         /// <summary>
@@ -99,6 +103,8 @@ namespace MiCalculadora
         {
             Numero aux = new Numero();
             this.lblResultado.Text = aux.BinarioDecimal(lblResultado.Text);
+            this.btnConvertirABinario.Enabled = true;
+            this.btnConvertirADecimal.Enabled = false;
         }
     }
 }
