@@ -20,24 +20,23 @@ namespace Entidades
             char operadorParseado = '+';//si el TryParse no funciona la operacion sera de suma
             double resultado = 0;
 
-            if( Char.TryParse(operador,out operadorParseado) )
+            Char.TryParse(operador, out operadorParseado);
+            switch(ValidarOperador(operadorParseado))
             {
-                switch(ValidarOperador(operadorParseado))
-                {
-                    case "-":
-                        resultado = num1 - num2;
-                        break;
-                    case "*":
-                        resultado = num1 * num2;
-                        break;
-                    case "/":
-                        resultado = num1 / num2;
-                        break;
-                    default:
-                        resultado = num1 + num2;
-                        break;
-                }
+                case "-":
+                    resultado = num1 - num2;
+                    break;
+                case "*":
+                    resultado = num1 * num2;
+                    break;
+                case "/":
+                    resultado = num1 / num2;
+                    break;
+                default:
+                    resultado = num1 + num2;
+                    break;
             }
+            
 
             return resultado;
         }
