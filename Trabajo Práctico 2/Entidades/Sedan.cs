@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Entidades
 {
-    class Sedan : Vehiculo
+    public class Sedan : Vehiculo
     {
         public enum ETipo { CuatroPuertas, CincoPuertas }
         ETipo tipo;
@@ -22,7 +22,13 @@ namespace Entidades
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
             : base(chasis, marca, color)
         {
-            tipo = ETipo.CuatroPuertas;
+            this.tipo = ETipo.CuatroPuertas;
+        }
+
+        public Sedan(EMarca marca, string chasis, ConsoleColor color,ETipo tipo)
+            : this(marca, chasis, color)
+        {
+            this.tipo = tipo;
         }
 
         /// <summary>
@@ -32,7 +38,7 @@ namespace Entidades
         {
             get
             {
-                return this.Tamanio;
+                return ETamanio.Mediano;
             }
         }
 
@@ -42,7 +48,7 @@ namespace Entidades
 
             sb.AppendLine("SEDAN");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine(string.Format("TAMAÑO : {0}", this.Tamanio));
+            sb.Append(string.Format("TAMAÑO : {0}", this.Tamanio));
             sb.AppendLine("TIPO : " + this.tipo);
             sb.AppendLine("");
             sb.AppendLine("---------------------");

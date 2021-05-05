@@ -24,6 +24,7 @@ namespace Entidades
             this.vehiculos = new List<Vehiculo>();
         }
         public Taller(int espacioDisponible)
+            :this()
         {
             this.espacioDisponible = espacioDisponible;
         }
@@ -60,13 +61,22 @@ namespace Entidades
                 switch (tipo)
                 {
                     case ETipo.Camioneta:
-                        sb.AppendLine(v.Mostrar());
+                        if(v is Suv)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Moto:
-                        sb.AppendLine(v.Mostrar());
+                        if(v is Ciclomotor)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Automovil:
-                        sb.AppendLine(v.Mostrar());
+                        if(v is Sedan)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     default:
                         sb.AppendLine(v.Mostrar());
@@ -87,13 +97,17 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator +(Taller taller, Vehiculo vehiculo)
         {
-            foreach (Vehiculo v in taller.vehiculos)
+            if(taller.vehiculos.Count < taller.espacioDisponible)
             {
-                if (v == vehiculo)
-                    return taller;
+                foreach (Vehiculo v in taller.vehiculos)
+                {
+                    if (v == vehiculo)
+                        return taller;
+                }
+
+                taller.vehiculos.Add(vehiculo);
             }
 
-            taller.vehiculos.Add(vehiculo);
             return taller;
         }
         /// <summary>
@@ -108,6 +122,7 @@ namespace Entidades
             {
                 if (v == vehiculo)
                 {
+                    taller.vehiculos.Remove(v);
                     break;
                 }
             }
