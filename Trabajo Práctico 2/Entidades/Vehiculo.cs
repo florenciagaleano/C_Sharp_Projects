@@ -24,20 +24,26 @@ namespace Entidades
         private string chasis;
         private ConsoleColor color;
 
+        #region Constructores
         public Vehiculo(string chasis, EMarca marca, ConsoleColor color)
         {
             this.marca = marca;
             this.chasis = chasis;
             this.color = color;
         }
+        #endregion
 
-
-
+        #region Propiedades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        protected abstract ETamanio Tamanio { get; }
+        protected abstract ETamanio Tamanio 
+        {
+            get;
+        }
+        #endregion
 
+        #region Metodos
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
@@ -46,7 +52,9 @@ namespace Entidades
         {
             return (string)this;
         }
+        #endregion
 
+        #region Sobrecargas
         public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
@@ -67,7 +75,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Vehiculo v1, Vehiculo v2)
         {
-            return (v1.chasis == v2.chasis);
+            return v1.chasis == v2.chasis;
         }
         /// <summary>
         /// Dos vehiculos son distintos si su chasis es distinto
@@ -79,5 +87,6 @@ namespace Entidades
         {
             return (v1.chasis == v2.chasis);
         }
+        #endregion
     }
 }

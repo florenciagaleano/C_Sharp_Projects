@@ -14,8 +14,9 @@ namespace Entidades
         { 
             CuatroPuertas, CincoPuertas 
         }
-        ETipo tipo;
+        private ETipo tipo;
 
+        #region Constructres
         /// <summary>
         /// Por defecto, TIPO será CuatroPuertas
         /// </summary>
@@ -33,7 +34,9 @@ namespace Entidades
         {
             this.tipo = tipo;
         }
+        #endregion
 
+        #region Propiedades
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
@@ -44,7 +47,9 @@ namespace Entidades
                 return ETamanio.Mediano;
             }
         }
+        #endregion
 
+        #region Propiedades
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -58,5 +63,6 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
     }
 }
