@@ -62,6 +62,7 @@ namespace Entidades
             sb.AppendLine(string.Format("CHASIS: {0}\r", p.chasis));
             sb.AppendLine(string.Format("MARCA : {0}\r", p.marca.ToString()));
             sb.AppendLine(string.Format("COLOR : {0}\r", p.color.ToString()));
+            sb.Append(string.Format("TAMAÑO : {0}", p.Tamanio));
             sb.AppendLine("---------------------");
 
             return sb.ToString();
@@ -85,7 +86,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator !=(Vehiculo v1, Vehiculo v2)
         {
-            return (v1.chasis == v2.chasis);
+            return !(v1 == v2);
         }
         #endregion
     }
