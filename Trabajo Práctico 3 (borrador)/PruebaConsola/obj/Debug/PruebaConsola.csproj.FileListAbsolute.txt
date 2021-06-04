@@ -1,0 +1,20 @@
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.exe.config
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.exe
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.pdb
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\bin\Debug\Clases.dll
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\bin\Debug\Clases.pdb
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csproj.CopyComplete
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.exe
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.exe.config
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.exe
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\bin\Debug\PruebaConsola.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\bin\Debug\Clases.dll
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\bin\Debug\Clases.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.exe
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\PruebaConsola\obj\Debug\PruebaConsola.pdb

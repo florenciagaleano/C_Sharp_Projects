@@ -1,0 +1,12 @@
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\bin\Debug\Clases.dll
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\bin\Debug\Clases.pdb
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\obj\Debug\Clases.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\obj\Debug\Clases.dll
+C:\Users\Flia. Galeano\source\repos\Borrador tp3\Clases\obj\Debug\Clases.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\bin\Debug\Clases.dll
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\bin\Debug\Clases.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\obj\Debug\Clases.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\obj\Debug\Clases.dll
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Borrador tp3\Clases\obj\Debug\Clases.pdb
