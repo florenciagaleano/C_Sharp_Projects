@@ -46,7 +46,8 @@ namespace Clases.Fabrica
 
         public static int Fabricar(Fabrica f)//no deberia ser int mañana veo
         {
-            Jornada j = new Jornada(DateTime.Now,f.cantidadTrabajadores);
+            DateTime fecha = DateTime.Now;
+            Jornada j = new Jornada(fecha,f.cantidadTrabajadores);
             f.jornadas.Add(j);
             int contador = 0;
 
@@ -59,7 +60,8 @@ namespace Clases.Fabrica
                 }
                 else
                 {
-                    j = new Jornada(DateTime.Now.AddDays(1), f.cantidadTrabajadores);
+                    fecha = DateTime.Now.AddDays(1);
+                    j = new Jornada(fecha, f.cantidadTrabajadores);
                     f.jornadas.Add(j);
                 }
             }
@@ -83,7 +85,14 @@ namespace Clases.Fabrica
 
         public string GenerarInforme()
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+
+            foreach(Jornada j in this.Jornadas)
+            {
+                sb.AppendLine(j.ToString());
+            }
+
+            return sb.ToString();
         }
 
         private DateTime AsignarVencimiento()
