@@ -1,0 +1,10 @@
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\bin\Debug\Test Consola.exe.config
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\bin\Debug\Test Consola.exe
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\bin\Debug\Test Consola.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\bin\Debug\Entidades.dll
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\bin\Debug\Entidades.pdb
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\obj\Debug\Test Consola.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\obj\Debug\Test Consola.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\obj\Debug\Test Consola.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\obj\Debug\Test Consola.exe
+C:\Users\Flia. Galeano\Desktop\Datos\Flor UTN\Galeano.Florencia.2D.TP3\Test Consola\obj\Debug\Test Consola.pdb

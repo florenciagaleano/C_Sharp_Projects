@@ -14,12 +14,16 @@ namespace Entidades
             Fabricado,
             Envasado,
             Entregado,
-            Vencido
         }
 
         private DateTime vencimiento;
         private int minutosPorUnidad;
         private Estado estado;
+
+        public Producto()
+        {
+
+        }
 
         protected Producto(int minutos)
         {
@@ -67,7 +71,19 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")}");
+            sb.Append($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")} || ");
+            if (this.EstadoActual is Producto.Estado.Entregado)
+            {
+                sb.AppendLine("ENTREGADO");
+            }
+            else if (this.EstadoActual is Producto.Estado.Nuevo)
+            {
+                sb.AppendLine("NUEVO");
+            }
+            else
+            {
+                sb.AppendLine("FABRICADO SIN ENTREGAR");
+            }
 
             return sb.ToString();
         }

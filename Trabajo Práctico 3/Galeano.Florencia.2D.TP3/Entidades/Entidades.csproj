@@ -45,6 +45,7 @@
     <Compile Include="Archivos\Texto.cs" />
     <Compile Include="Archivos\Xml.cs" />
     <Compile Include="Excepciones\ArchivoException.cs" />
+    <Compile Include="Excepciones\NoHayActividadEnEsaFechaException.cs" />
     <Compile Include="Fabrica\Fabrica.cs" />
     <Compile Include="Fabrica\Jornada.cs" />
     <Compile Include="Productos\Base.cs" />

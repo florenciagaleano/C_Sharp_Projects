@@ -9,6 +9,6 @@ namespace Entidades.Archivos
     public interface IArchivo<T>
     {
         bool Guardar(string ruta, T info);
-        bool Leer(string ruta,out T info);
+        T Leer(string ruta);
     }
 }

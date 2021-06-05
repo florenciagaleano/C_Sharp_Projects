@@ -67,7 +67,7 @@ namespace Entidades.Productos
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Rimel {this.color} || Efecto {this.efecto} || {base.Informe()}");
+            sb.Append($"Rimel {this.color} || Efecto {this.efecto} || {base.Informe()}");
 
             return sb.ToString();
         }

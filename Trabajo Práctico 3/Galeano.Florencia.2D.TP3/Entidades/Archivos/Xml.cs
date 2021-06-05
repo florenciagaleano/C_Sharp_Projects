@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Xml;
 using Entidades.Excepciones;
+using Entidades.Fabrica;
+using System.IO;
 
 namespace Entidades.Archivos
 {
+    [Serializable]//esto era con binaria no?
     public class Xml<T> : IArchivo<T>
     {
         public bool Guardar(string ruta, T info)
@@ -16,42 +19,38 @@ namespace Entidades.Archivos
             bool seGuardo = false;
             try
             {
-                using (XmlWriter writer = new XmlTextWriter(ruta,Encoding.UTF8))
+                using (XmlTextWriter writer = new XmlTextWriter(ruta, System.Text.Encoding.UTF8))
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(T));
-
-                    ser.Serialize(writer,info); ;
-                    seGuardo = true;
+                    ser.Serialize(writer, info);
                 }
-            }catch(Exception)
+            }
+            catch (Exception e)
             {
-                throw new ArchivoException("Problemas para guardar el arechivo en formato XML");
+                throw new ArchivoException("Problemas para guardar el archivo en formato XML. " + e.Message);
             }
 
             return seGuardo;
         }
 
-        public bool Leer(string ruta,out T info)
+        public T Leer(string ruta)
         {
-            info = default;
-            bool seLeyo = false;
-
             try
             {
                 using (XmlTextReader reader = new XmlTextReader(ruta))
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(T));
 
-                    info = (T)ser.Deserialize(reader);
+                    return (T)ser.Deserialize(reader);
                 }
-                seLeyo = true;
             }
             catch (Exception)
             {
                 throw new ArchivoException("Problemas para leer el archivo en formato XML");
             }
 
-            return seLeyo;
+            return default;
         }
+
     }
 }

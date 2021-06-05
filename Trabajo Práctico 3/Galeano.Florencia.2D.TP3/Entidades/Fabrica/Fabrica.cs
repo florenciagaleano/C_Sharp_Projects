@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades.Excepciones;
+using Entidades.Archivos;
 
 namespace Entidades.Fabrica
 {
@@ -11,10 +13,11 @@ namespace Entidades.Fabrica
         private List<Producto> productos;
         private List<Jornada> jornadas;
         private int cantidadTrabajadores;
-
+        
         /// <summary>
-        /// 
+        /// Constructor de fábrica
         /// </summary>
+        /// <param name="trabajadores">Cantidad de trabajadores</param>
         public Fabrica(int trabajadores)
         {
             this.productos = new List<Producto>();
@@ -38,6 +41,26 @@ namespace Entidades.Fabrica
             }
         }
 
+        public int BuscarIndiceJornadaPorFecha(DateTime fecha)
+        {
+            int indice = -1;
+
+            for (int i = 0; i < this.jornadas.Count; i++)
+            {
+                if(jornadas[i].Fecha == fecha)
+                {
+                    indice = i;
+                }
+            }
+
+            if(indice == -1)
+            {
+                throw new NoHayActividadEnEsaFechaException();
+            }
+
+            return indice;
+        }
+
         public void HacerPedido(Producto p, int cantidadUnidades)
         {
             for (int i = 0; i < cantidadUnidades; i++)
@@ -53,7 +76,7 @@ namespace Entidades.Fabrica
 
         public static int Fabricar(Fabrica f)//no deberia ser int mañana veo
         {
-            DateTime fecha = DateTime.Now;
+            DateTime fecha = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
             Jornada j = new Jornada(fecha, f.cantidadTrabajadores);
             f.jornadas.Add(j);
             int contador = 0;
@@ -87,15 +110,12 @@ namespace Entidades.Fabrica
                 if (p.EstadoActual is Producto.Estado.Fabricado)
                 {
                     p.Vencimiento = f.AsignarVencimiento();
-                    if (f.ValidarVencimiento(p))
+                    if(p.Vencimiento > DateTime.Now)
                     {
                         contador++;
                         p.EstadoActual = Producto.Estado.Envasado;
                     }
-                    else
-                    {
-                        p.EstadoActual = Producto.Estado.Vencido;
-                    }
+
                 }
             }
 
@@ -117,23 +137,13 @@ namespace Entidades.Fabrica
             return contador;
         }
 
-        public bool ValidarVencimiento(Producto p)
-        {
-            if (p.Vencimiento <= DateTime.Now)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        public string GenerarInforme()
+        public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
             foreach (Jornada j in this.Jornadas)
             {
-                sb.AppendLine(j.ToString());
+                sb.AppendLine(j.InformeResumido());
             }
 
             return sb.ToString();
@@ -141,10 +151,33 @@ namespace Entidades.Fabrica
 
         private DateTime AsignarVencimiento()
         {
-            DateTime start = new DateTime(2019, 1, 1);
-            Random gen = new Random();
-            int range = (DateTime.Today - start).Days;
-            return start.AddDays(gen.Next(range));
+            return DateTime.Now.AddDays(new Random().Next(3*365));
         }
+
+        public bool GuardarListaPendientesXml()
+        {
+            Xml<List<Jornada>> txt = new Xml<List<Jornada>>();
+            string ruta = "Pendientes.xml";
+            List <Producto>  pendientes= new List<Producto>();
+
+            if(this.jornadas.Count > 0)
+            {
+                for(int i = 1; i<jornadas.Count; i++)
+                {
+                    pendientes.AddRange(this.jornadas[i].ProductosAFabricar);
+                }
+            }
+           
+            return txt.Guardar(ruta,this.Jornadas);
+        }
+
+        //public string LeerPendientes()
+        //{
+        //    Xml<List<Producto>> xml = new Xml<List<Producto>>();
+        //    string ruta = "Pendientes.xml";
+        //    List<Producto> pendientes = new List<Producto>();
+
+        //    return (xml.Leer(ruta)).ToString();
+        //}
     }
 }

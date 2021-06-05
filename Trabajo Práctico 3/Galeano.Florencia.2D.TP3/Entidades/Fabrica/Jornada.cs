@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades.Productos;
+using Entidades.Archivos;
 
 namespace Entidades.Fabrica
 {
@@ -23,6 +24,22 @@ namespace Entidades.Fabrica
         {
             this.fecha = fecha;
             this.cantidadTrabajadores = cantidadTrabajadores;
+        }
+
+        public DateTime Fecha
+        {
+            get
+            {
+                return this.fecha;
+            }
+        }
+
+        public List<Producto> ProductosAFabricar
+        {
+            get
+            {
+                return this.productosAFabricar;
+            }
         }
 
         public int CalcularTiempo()
@@ -56,15 +73,15 @@ namespace Entidades.Fabrica
             return true;
         }
 
-        public override string ToString()
+        public string InformeResumido()
         {
             int contadorLabiales = 0;
             int contadorBases = 0;
             int contadorRimel = 0;
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Fecha: {this.fecha}");
-            sb.AppendLine("Productos:");
+            sb.AppendLine($"FECHA: {this.fecha}");
+            sb.AppendLine("PRODUCTOS FABRICADOS:");
 
             foreach (Producto item in this.productosAFabricar)
             {
@@ -88,6 +105,42 @@ namespace Entidades.Fabrica
 
 
             return sb.ToString();
+        }
+
+        public string InformeDetallado()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"FECHA: {this.fecha}");
+            sb.AppendLine("PRODUCTOS FABRICADOS:");
+
+            foreach (Producto item in this.productosAFabricar)
+            {
+                sb.Append(item.Informe());
+            }
+
+            return sb.ToString();
+        }
+
+        public bool GuardarInformeDetalladoTxt()
+        {
+            Texto<List<Jornada>> txt = new Texto<List<Jornada>>();
+            string ruta ="jornada.txt";
+            return txt.Guardar(ruta, this.InformeDetallado());
+        }
+
+        public bool GuardarInformeDetalladoXml()
+        {
+            Xml<Jornada> xml = new Xml<Jornada>();
+            string ruta = "Jornada.xml";
+            return xml.Guardar(ruta, this);
+        }
+
+        public bool GuardarInformeResumidoTxt()
+        {
+            Texto<List<Jornada>> txt = new Texto<List<Jornada>>();
+            string ruta = "jornada.txt";
+            return txt.Guardar(ruta, this.InformeResumido());
         }
     }
 }

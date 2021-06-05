@@ -39,21 +39,8 @@ namespace Entidades.Productos
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append($"Base || {this.tono} || {base.Informe()} || ");
-            if (this.EstadoActual is Producto.Estado.Entregado)
-            {
-                sb.AppendLine("ENTREGADO");
-            }
-            else if (this.EstadoActual is Producto.Estado.Nuevo)
-            {
-                sb.AppendLine("NUEVO");
-            }
-            else
-            {
-                sb.AppendLine("FABRICADO SIN ENTREGAR");
-            }
-
-
+            sb.Append($"Base || {this.tono} || {base.Informe()} ");
+            
             return sb.ToString();
         }
 

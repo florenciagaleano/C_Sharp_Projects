@@ -12,9 +12,9 @@ namespace Test_Consola
     {
         static void Main(string[] args)
         {
+            DateTime d = new DateTime(2021,6,5);
             //informe detallado e informa resumido Lista de pendientes Productos vencidos
             Labial labial = new Labial(ConsoleColor.Red, Labial.Tipo.Liquido);
-            Labial labial2 = new Labial(ConsoleColor.Red, Labial.Tipo.Liquido);
             Rimel rimel = new Rimel(Rimel.Efecto.Volumen);
             Base producBase = new Base(100);//deberia settear 200
 
@@ -28,7 +28,12 @@ namespace Test_Consola
             Fabrica.Envasar(f);
             Fabrica.Distribuir(f);
 
-            Console.WriteLine(f.GenerarInforme());
+            //se crean dos jornadas porque no alcanza el tiempo para fabricar todo en una sola
+
+            //Console.WriteLine(f.ToString());
+            f.Jornadas[f.BuscarIndiceJornadaPorFecha(new DateTime(2021,6,5))].GuardarInformeDetalladoXml();
+            f.GuardarListaPendientesXml();
+
 
             Console.ReadKey();
         }

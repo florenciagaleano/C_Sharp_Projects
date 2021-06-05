@@ -30,7 +30,7 @@ namespace Entidades.Productos
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Labial {this.tipo} || {this.color} || {base.Informe()}");
+            sb.Append($"Labial {this.tipo} || {this.color} || {base.Informe()}");
 
             return sb.ToString();
         }

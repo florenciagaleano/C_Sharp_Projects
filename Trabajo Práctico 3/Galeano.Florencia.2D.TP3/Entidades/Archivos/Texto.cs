@@ -26,24 +26,24 @@ namespace Entidades.Archivos
                     seGuardo = true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new ArchivoException("Problema al guardar en formato texto");
+                throw new ArchivoException("Problema al guardar en formato texto. " + e.Message);
             }
 
             return seGuardo;
         }
 
-        public bool Leer(string ruta,out string info)
+        public string Leer(string ruta)
         {
-            info = default;
+            //info = default;
             bool seLeyo = false;
 
             try
             {
                 using (StreamReader reader = new StreamReader(ruta))
                 {
-                    info = reader.ReadToEnd();
+                    return reader.ReadToEnd();
                 }
                 seLeyo = true;
             }
@@ -51,8 +51,8 @@ namespace Entidades.Archivos
             {
                 throw new ArchivoException("Problemas para leer el archivo en formato XML");
             }
-
-            return seLeyo;
+            return default;
+            //return seLeyo;
         }
     }
 }
