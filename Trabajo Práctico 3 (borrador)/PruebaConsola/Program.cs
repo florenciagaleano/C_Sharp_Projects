@@ -12,6 +12,7 @@ namespace PruebaConsola
     {
         static void Main(string[] args)
         {
+            //informe detallado e informa resumido Lista de pendientes Productos vencidos
             Labial labial = new Labial(ConsoleColor.Red, Labial.Tipo.Liquido);
             Labial labial2 = new Labial(ConsoleColor.Red, Labial.Tipo.Liquido);
             Rimel rimel = new Rimel(Rimel.Efecto.Volumen);
@@ -23,36 +24,13 @@ namespace PruebaConsola
             f.HacerPedido(labial, 200); // 200 * 3 = 600
             f.HacerPedido(rimel, 300); // 300* 5 = 1500
             
-            //
             Fabrica.Fabricar(f);
+            Fabrica.Envasar(f);
+            Fabrica.Distribuir(f);
 
-
-            //jornadas rompe
-            //el + no anda
             Console.WriteLine(f.GenerarInforme());
  
             Console.ReadKey();
-
-            //arreglar lo de jornada, fabricar es el que no anda
-
-        //    public static Universidad operator +(Universidad u, EClases clase)
-        //{
-        //    //creo mi objeto jornada con el primer profesor disponible(operador ==) y la clase recibida.
-        //    Jornada jornadaNueva = new Jornada(clase, u == clase);
-        //    foreach (Alumno item in u.Alumnos)
-        //    {
-        //        if (item == clase)
-        //        {
-        //            jornadaNueva += item;
-        //        }
-
-        //    }
-
-        //    int indice = u.Jornadas.Count;
-        //    u[indice] = jornadaNueva;
-
-        //    return u;
-        //}
-    }
+        }
     }
 }
