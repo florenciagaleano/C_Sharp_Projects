@@ -14,6 +14,8 @@ namespace Entidades.Fabrica
         private List<Jornada> jornadas;
         private int cantidadTrabajadores;
         
+        public Fabrica() { }
+
         /// <summary>
         /// Constructor de fábrica
         /// </summary>
@@ -154,30 +156,23 @@ namespace Entidades.Fabrica
             return DateTime.Now.AddDays(new Random().Next(3*365));
         }
 
-        public bool GuardarListaPendientesXml()
-        {
-            Xml<List<Jornada>> txt = new Xml<List<Jornada>>();
-            string ruta = "Pendientes.xml";
-            List <Producto>  pendientes= new List<Producto>();
-
-            if(this.jornadas.Count > 0)
-            {
-                for(int i = 1; i<jornadas.Count; i++)
-                {
-                    pendientes.AddRange(this.jornadas[i].ProductosAFabricar);
-                }
-            }
-           
-            return txt.Guardar(ruta,this.Jornadas);
-        }
-
-        //public string LeerPendientes()
+        //mejor hacerlo en txt
+        //public bool GuardarListaPendientesBinaria()
         //{
-        //    Xml<List<Producto>> xml = new Xml<List<Producto>>();
-        //    string ruta = "Pendientes.xml";
-        //    List<Producto> pendientes = new List<Producto>();
+        //    Xml<List<Producto>> txt = new Xml<List<Producto>>();
+        //    string ruta = "Pendientes.bin";
+        //    List <Producto>  pendientes= new List<Producto>();
 
-        //    return (xml.Leer(ruta)).ToString();
+        //    if(this.jornadas.Count > 0)
+        //    {
+        //        for(int i = 1; i<jornadas.Count; i++)
+        //        {
+        //            pendientes.AddRange(this.jornadas[i].ProductosAFabricar);
+        //        }
+        //    }
+
+        //    return txt.Guardar(ruta,pendientes);
         //}
+
     }
 }

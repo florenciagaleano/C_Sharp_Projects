@@ -19,6 +19,11 @@ namespace Entidades.Productos
         private const int minutos = 3;//3 minutos por labial
         private Tipo tipo;
 
+        public Labial()
+        {
+
+        }
+
         public Labial(ConsoleColor color, Tipo tipo)
             : base(minutos)
         {

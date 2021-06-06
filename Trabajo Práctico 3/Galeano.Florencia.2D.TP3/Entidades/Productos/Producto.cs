@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using Entidades.Productos;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Labial))]
+    [XmlInclude(typeof(Rimel))]
+    [XmlInclude(typeof(Base))]
     public class Producto
     {
         public enum Estado

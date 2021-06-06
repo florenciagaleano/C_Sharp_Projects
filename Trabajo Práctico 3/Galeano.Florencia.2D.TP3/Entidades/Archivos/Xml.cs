@@ -11,7 +11,6 @@ using System.IO;
 
 namespace Entidades.Archivos
 {
-    [Serializable]//esto era con binaria no?
     public class Xml<T> : IArchivo<T>
     {
         public bool Guardar(string ruta, T info)
@@ -27,7 +26,7 @@ namespace Entidades.Archivos
             }
             catch (Exception e)
             {
-                throw new ArchivoException("Problemas para guardar el archivo en formato XML. " + e.Message);
+                throw new ArchivoException("Problemas para guardar el archivo en formato XML. " + e.InnerException.Message);
             }
 
             return seGuardo;
@@ -48,8 +47,6 @@ namespace Entidades.Archivos
             {
                 throw new ArchivoException("Problemas para leer el archivo en formato XML");
             }
-
-            return default;
         }
 
     }

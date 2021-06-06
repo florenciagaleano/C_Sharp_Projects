@@ -19,6 +19,11 @@ namespace Entidades.Productos
         const int minutosPorUnidad = 5;
         ConsoleColor color;
 
+        public Rimel()
+        {
+
+        }
+
         /// <summary>
         /// Constructor de rimel
         /// </summary>

@@ -122,13 +122,6 @@ namespace Entidades.Fabrica
             return sb.ToString();
         }
 
-        public bool GuardarInformeDetalladoTxt()
-        {
-            Texto<List<Jornada>> txt = new Texto<List<Jornada>>();
-            string ruta ="jornada.txt";
-            return txt.Guardar(ruta, this.InformeDetallado());
-        }
-
         public bool GuardarInformeDetalladoXml()
         {
             Xml<Jornada> xml = new Xml<Jornada>();
@@ -141,6 +134,20 @@ namespace Entidades.Fabrica
             Texto<List<Jornada>> txt = new Texto<List<Jornada>>();
             string ruta = "jornada.txt";
             return txt.Guardar(ruta, this.InformeResumido());
+        }
+
+        public string LeerInformeDetalladoXml()
+        {
+            Xml<Jornada> xml = new Xml<Jornada>();
+            string ruta = "Jornada.xml";
+            return xml.Leer(ruta).InformeDetallado();
+        }
+
+        public string LeerInformeResumidoTxt()
+        {
+            Texto<List<Jornada>> txt = new Texto<List<Jornada>>();
+            string ruta = "jornada.txt";
+            return txt.Leer(ruta).ToString();
         }
     }
 }

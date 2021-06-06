@@ -11,6 +11,10 @@ namespace Entidades.Productos
         int tono;
         const int minutosPorUnidad = 9;
 
+        public Base()
+        {
+
+        }
         public Base(int tono)
             : base(minutosPorUnidad)
         {

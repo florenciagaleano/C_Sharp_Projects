@@ -31,9 +31,11 @@ namespace Test_Consola
             //se crean dos jornadas porque no alcanza el tiempo para fabricar todo en una sola
 
             //Console.WriteLine(f.ToString());
-            f.Jornadas[f.BuscarIndiceJornadaPorFecha(new DateTime(2021,6,5))].GuardarInformeDetalladoXml();
-            f.GuardarListaPendientesXml();
+            f.Jornadas[f.BuscarIndiceJornadaPorFecha(DateTime.Today)].GuardarInformeDetalladoXml();
+            f.Jornadas[f.BuscarIndiceJornadaPorFecha(DateTime.Today)].GuardarInformeResumidoTxt();
 
+            Console.WriteLine(f.Jornadas[f.BuscarIndiceJornadaPorFecha(DateTime.Today)].LeerInformeDetalladoXml());
+            Console.WriteLine(f.Jornadas[f.BuscarIndiceJornadaPorFecha(DateTime.Today)].LeerInformeResumidoTxt());
 
             Console.ReadKey();
         }
