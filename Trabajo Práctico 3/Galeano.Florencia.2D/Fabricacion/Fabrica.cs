@@ -15,7 +15,13 @@ namespace Fabricacion
         private List<Jornada> jornadas;
         private int cantidadTrabajadores;
 
-        public Fabrica() { }
+        /// <summary>
+        /// Constructor por defecto de Fabrica
+        /// </summary>
+        public Fabrica()
+        { 
+
+        }
 
         /// <summary>
         /// Constructor de fábrica
@@ -28,22 +34,39 @@ namespace Fabricacion
             this.cantidadTrabajadores = trabajadores;
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura de la lista de Jornadas
+        /// </summary>
         public List<Jornada> Jornadas
         {
             get
             {
                 return this.jornadas;
+            }set
+            {
+                this.jornadas = value;
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura delalista de Productos
+        /// </summary>
         public List<Producto> Productos
         {
             get
             {
                 return this.productos;
+            }set
+            {
+                this.productos = value;
             }
         }
 
+        /// <summary>
+        /// Metodo que busca el indice de una jornada de acuerdo a una fecha
+        /// </summary>
+        /// <param name="fecha">Fecha a buscar</param>
+        /// <returns>Jornada encontrada con esa fecha o lanza una excepción si no se encontró</returns>
         public int BuscarIndiceJornadaPorFecha(DateTime fecha)
         {
             int indice = -1;
@@ -64,6 +87,11 @@ namespace Fabricacion
             return indice;
         }
 
+        /// <summary>
+        /// Método para hacer pedido de una determinada cantidad de unidades de un mismo producto
+        /// </summary>
+        /// <param name="p">Producto del pedido</param>
+        /// <param name="cantidadUnidades">Cantidad de unidades de dicho producto</param>
         public void HacerPedido(Producto p, int cantidadUnidades)
         {
             for (int i = 0; i < cantidadUnidades; i++)
@@ -73,11 +101,21 @@ namespace Fabricacion
             }
         }
 
+        /// <summary>
+        /// Método para hacer pedido de una lista de productos
+        /// </summary>
+        /// <param name="listaPedido">Lista de productos a agregar al pedido</param>
         public void HacerPedido(List<Producto> listaPedido)
         {
             this.productos.AddRange(listaPedido);
         }
 
+        /// <summary>
+        /// Sobrecarga de operador + que agrega una jornada a la lista de jornadas
+        /// </summary>
+        /// <param name="f">Fábrica en la qie se cargará la jornada</param>
+        /// <param name="j">Jornada a agregar</param>
+        /// <returns>La nueva jornada si no hay ninguna en esa fecha o sino la jornada de esa fecha</returns>
         public static Jornada operator +(Fabrica f, Jornada j)
         {
             if (f != j)
@@ -92,11 +130,20 @@ namespace Fabricacion
             return j;
         }
 
+
+        public static void IniciarFabricacion(Fabrica f)
+        {
+            Fabrica.Fabricar(f);
+            Fabrica.Envasar(f);
+            Fabrica.Distribuir(f);
+        }
+
         public static int Fabricar(Fabrica f)//no deberia ser int mañana veo
         {
             DateTime fecha = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             Jornada j = f + new Jornada(fecha, f.cantidadTrabajadores);
             int contador = 0;
+            bool agregarJornada = false;
 
             foreach (Producto p in f.productos)
             {
@@ -104,13 +151,18 @@ namespace Fabricacion
                 {
                     if (j + p)
                     {
+                        p.EstadoActual = Producto.Estado.Fabricado;
                         contador++;
+                    }else
+                    {
+                        agregarJornada = true;
                     }
-                }else
-                {
-                    fecha = new DateTime(DateTime.Now.AddDays(1).Year, DateTime.Now.AddDays(1).Month, DateTime.Now.AddDays(1).Day);
-                    j = f + new Jornada(fecha, f.cantidadTrabajadores);
                 }
+            }
+
+            if(agregarJornada)
+            {
+                f.ActualizarPendientes();
             }
 
             return contador;
@@ -151,6 +203,22 @@ namespace Fabricacion
             return contador;
         }
 
+        public void ActualizarPendientes()
+        {
+            DateTime fecha = new DateTime(DateTime.Now.AddDays(1).Year, DateTime.Now.AddDays(1).Month, DateTime.Now.AddDays(1).Day);
+            Jornada j = this + new Jornada(fecha,this.cantidadTrabajadores);
+            bool seAgrego;
+
+            foreach (Producto item in this.productos)
+            {
+                if(item.EstadoActual == Producto.Estado.Nuevo)
+                {
+                    seAgrego = j + item;
+                }
+            }
+
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -184,6 +252,22 @@ namespace Fabricacion
         public static bool operator !=(Fabrica f, Jornada j)
         {
             return !(f == j);
+        }
+
+        public bool GuardarPendientesTxt()
+        {
+            Texto<string> txt = new Texto<string>();
+            List<string> pendientes = new List<string>();
+
+            foreach (Producto item in this.productos)
+            {
+                if(item.EstadoActual == Producto.Estado.Nuevo)
+                {
+                    pendientes.Add(item.Informe());
+                }
+            }
+
+            return txt.Guardar("Pendientes.txt", pendientes.ToString());
         }
     }
 }

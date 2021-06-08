@@ -11,18 +11,27 @@ namespace Productos
         int tono;
         const int minutosPorUnidad = 9;
 
+        /// <summary>
+        /// Constructor de base opr defcto
+        /// </summary>
         public Base()
         {
 
         }
+
+        /// <summary>
+        /// Constructor de base con un tono a asignar
+        /// </summary>
+        /// <param name="tono">Tono a asignar</param>
         public Base(int tono)
             : base(minutosPorUnidad)
         {
             this.Tono = tono;
         }
 
+
         /// <summary>
-        /// Propiedad de solo escritura que solo asignara un tono si el valor esta entre 200 y 210, de no estarlo se asignara 200
+        /// Propiedad de lectura y escritura, solo permite settear tono si está entre 200 y 210, sino settea 200
         /// </summary>
         public int Tono
         {
@@ -43,6 +52,10 @@ namespace Productos
             }
         }
 
+        /// <summary>
+        /// Recopila los datos de Labial
+        /// </summary>
+        /// <returns>Cadena con la información de Labial</returns>
         public override string Informe()
         {
             StringBuilder sb = new StringBuilder();
@@ -52,6 +65,10 @@ namespace Productos
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Clona una Base
+        /// </summary>
+        /// <returns>Objeto clonado casteado a Base</returns>
         public override object Clone()
         {
             return (Base)new Base(this.tono);

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ArchivoException.cs" />
     <Compile Include="NoHayActividadEnEsaFechaException.cs" />
+    <Compile Include="NoSePuedenAgregarMasProductos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,11 +14,19 @@ namespace Fabricacion
         private List<Producto> productosAFabricar;
         private int cantidadTrabajadores;
 
-        private Jornada()
+        /// <summary>
+        /// Constructor de jornada que inicializa la lista de productos
+        /// </summary>
+        public Jornada()
         {
             this.productosAFabricar = new List<Producto>();
         }
 
+        /// <summary>
+        /// Constructor de Jornada
+        /// </summary>
+        /// <param name="fecha">Fecha a asignar a jornada</param>
+        /// <param name="cantidadTrabajadores">Cantidad de trabajadores a asignar</param>
         public Jornada(DateTime fecha, int cantidadTrabajadores)
             : this()
         {
@@ -26,23 +34,54 @@ namespace Fabricacion
             this.cantidadTrabajadores = cantidadTrabajadores;
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura de cantidad de trabajadores
+        /// </summary>
+        public int CantidadTrabajadores
+        {
+            get
+            {
+                return this.cantidadTrabajadores;
+            }set
+            {
+                this.cantidadTrabajadores = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de lectura y escritura de fecha de la jornada
+        /// </summary>
         public DateTime Fecha
         {
             get
             {
                 return this.fecha;
+            }set
+            {
+                this.fecha = value;
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura de losproductos a fabricar
+        /// </summary>
         public List<Producto> ProductosAFabricar
         {
             get
             {
                 return this.productosAFabricar;
             }
+            set
+            {
+                this.productosAFabricar = value;
+            }
         }
 
-        public int CalcularTiempo()
+        /// <summary>
+        /// Método que calcula la cantidad de tiempo isponible de acuerdo a la cantidad de trabajadores y a los productos a fabricar
+        /// </summary>
+        /// <returns>La cantidad de tiempo disponible en minutos</returns>
+        private int CalcularTiempo()
         {
             int acum = 0;
 
@@ -54,23 +93,31 @@ namespace Fabricacion
             return this.cantidadTrabajadores * 8 * 60 - acum;
         }
 
-        public int CalcularTiempo(Producto p)
+        /// <summary>
+        /// Método que calcula la cantida de tiempo disponible restando la cantidad de tiempo de determinado producto
+        /// </summary>
+        /// <param name="p">Producto cuyo tiempo se restará</param>
+        /// <returns>La cantidad de tiempo en miutos</returns>
+        private int CalcularTiempo(Producto p)
         {
             return CalcularTiempo() - p.MinutosPorUnidad;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador + que retorna falso y no agrega al producot si no hay tiempo o el producto ya está fabricado
+        /// </summary>
+        /// <param name="j">Jornada a la cual agregar prducto</param>
+        /// <param name="p">Producto a agregar</param>
+        /// <returns>True si se agrego el producto a la lista de productos a fabricar y sino false</returns>
         public static bool operator +(Jornada j, Producto p)
         {
-            //Console.Write(j.CalcularTiempo(p));
-            //Console.WriteLine("|| {0}", j.CalcularTiempo());
 
-            if ((j.CalcularTiempo(p) > j.CalcularTiempo()) || j.CalcularTiempo(p) <= 0)
+            if (((j.CalcularTiempo(p) > j.CalcularTiempo()) || j.CalcularTiempo(p) <= 0)|| p.EstadoActual != Producto.Estado.Nuevo)
             {
                 return false;
             }
 
             j.productosAFabricar.Add(p);
-            p.EstadoActual = Producto.Estado.Fabricado;
             return true;
         }
 
@@ -81,7 +128,7 @@ namespace Fabricacion
             int contadorRimel = 0;
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"FECHA: {this.fecha}");
+            sb.AppendLine($"FECHA: {this.fecha.ToString("dd'/'MM'/'yy")}");
             sb.AppendLine("PRODUCTOS FABRICADOS:");
 
             foreach (Producto item in this.productosAFabricar)
@@ -108,6 +155,11 @@ namespace Fabricacion
             return sb.ToString();
         }
 
+        public override string ToString()
+        {
+            return this.InformeDetallado();
+        }
+
         public string InformeDetallado()
         {
             StringBuilder sb = new StringBuilder();
@@ -123,32 +175,18 @@ namespace Fabricacion
             return sb.ToString();
         }
 
-        //public bool GuardarInformeResumidoTxt()
-        //{
-        //    Xml<Jornada> xml = new Xml<Jornada>();
-        //    string ruta = "Jornada.xml";
-        //    return xml.Guardar(ruta, this);
-        //}
-
-        //public string LeerInformeResumidoTxt()
-        //{
-        //    Xml<Jornada> xml = new Xml<Jornada>();
-        //    string ruta = "Jornada.xml";
-        //    return xml.Leer(ruta).InformeDetallado();
-        //}
-
-        public bool GuardarInformeResumidoXml()
+        public bool GuardarInformeDetalladoXml()
         {
             Xml<Jornada> xml = new Xml<Jornada>();
-            string ruta = "jornadaXml.xml";
+            string ruta = "Jornada" + DateTime.Now.ToString("dd'-'MM'-'yyyy");
             return xml.Guardar(ruta, this);
         }
 
-        public string LeerInformeResumidoXml()
+        public Jornada LeerInformeDetalladoXml()
         {
             Xml<Jornada> xml = new Xml<Jornada>();
-            string ruta = "jornada.xml";
-            return ((Jornada)xml.Leer(ruta)).InformeResumido();
+            string ruta = "Jornada" + DateTime.Now.ToString("dd'-'MM'-'yyyy");
+            return xml.Leer(ruta);
         }
 
         

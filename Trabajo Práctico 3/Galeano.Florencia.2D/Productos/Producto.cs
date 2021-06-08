@@ -24,17 +24,27 @@ namespace Productos
         private int minutosPorUnidad;
         private Estado estado;
 
+        /// <summary>
+        /// Constructor por defecto de Producto
+        /// </summary>
         public Producto()
         {
 
         }
 
+        /// <summary>
+        /// Constructor de producto
+        /// </summary>
+        /// <param name="minutos">Minutos a asignar al atributo minutos</param>
         protected Producto(int minutos)
         {
             this.minutosPorUnidad = minutos;
             this.estado = Estado.Nuevo;
         }
 
+        /// <summary>
+        /// Propiedad de lectura de minutos por unidad
+        /// </summary>
         public int MinutosPorUnidad
         {
             get
@@ -43,6 +53,9 @@ namespace Productos
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura del estado del producto
+        /// </summary>
         public Estado EstadoActual
         {
             get
@@ -55,6 +68,9 @@ namespace Productos
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura del vencimiento del producto
+        /// </summary>
         public DateTime Vencimiento
         {
             get
@@ -68,7 +84,7 @@ namespace Productos
         }
 
         /// <summary>
-        /// Cadena que retornara fecha de vencimiento de producto
+        /// Cadena que retornara fecha de vencimiento de producto y el estado del mismo
         /// </summary>
         /// <returns>String</returns>
         public virtual string Informe()
@@ -92,6 +108,10 @@ namespace Productos
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Método a implementar de la interfaz ICloneable
+        /// </summary>
+        /// <returns></returns>
         public abstract object Clone();
     }
 }

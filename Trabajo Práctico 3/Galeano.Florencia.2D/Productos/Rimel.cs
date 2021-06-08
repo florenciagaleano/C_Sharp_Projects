@@ -19,6 +19,9 @@ namespace Productos
         const int minutosPorUnidad = 5;
         ConsoleColor color;
 
+        /// <summary>
+        /// Constructor por defecto de Rimel
+        /// </summary>
         public Rimel()
         {
 
@@ -35,6 +38,8 @@ namespace Productos
             color = ConsoleColor.Black;
         }
 
+        
+        
         /// <summary>
         /// Constructor de rimel
         /// </summary>
@@ -68,14 +73,24 @@ namespace Productos
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura del atributo efecto de Rimel
+        /// </summary>
         public Efecto EfectoRimel
         {
             get
             {
                 return this.efecto;
+            }set
+            {
+                this.efecto = value;
             }
         }
 
+        /// <summary>
+        /// Recopila los datos de Rimel
+        /// </summary>
+        /// <returns>Cadena con la información de Rimel</returns>
         public override string Informe()
         {
             StringBuilder sb = new StringBuilder();
@@ -85,6 +100,10 @@ namespace Productos
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Clona una Rimel
+        /// </summary>
+        /// <returns>Objeto clonado casteado a Rimel</returns>
         public override object Clone()
         {
             return new Rimel(this.efecto,this.color);

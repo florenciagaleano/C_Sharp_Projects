@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabricacion", "Fabricacion\Fabricacion.csproj", "{9D0388B8-59F2-416B-8C27-F1FCB77C3E29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms", "Forms\Forms.csproj", "{B2817CF0-2C3D-4072-BC11-77B670F507EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsUnitarios", "TestsUnitarios\TestsUnitarios.csproj", "{5E6FB393-F02A-43FC-9000-D0E13D0FB27B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{9D0388B8-59F2-416B-8C27-F1FCB77C3E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0388B8-59F2-416B-8C27-F1FCB77C3E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D0388B8-59F2-416B-8C27-F1FCB77C3E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2817CF0-2C3D-4072-BC11-77B670F507EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2817CF0-2C3D-4072-BC11-77B670F507EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2817CF0-2C3D-4072-BC11-77B670F507EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2817CF0-2C3D-4072-BC11-77B670F507EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6FB393-F02A-43FC-9000-D0E13D0FB27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6FB393-F02A-43FC-9000-D0E13D0FB27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6FB393-F02A-43FC-9000-D0E13D0FB27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6FB393-F02A-43FC-9000-D0E13D0FB27B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

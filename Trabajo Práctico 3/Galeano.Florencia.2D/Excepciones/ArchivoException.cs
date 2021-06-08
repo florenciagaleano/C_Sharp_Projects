@@ -8,8 +8,8 @@ namespace Excepciones
 {
     public class ArchivoException : Exception
     {
-        public ArchivoException(string mensaje)
-            :base(mensaje)
+        public ArchivoException(string mensaje,Exception innerException)
+            :base(mensaje + innerException.Message)
         {
 
         }

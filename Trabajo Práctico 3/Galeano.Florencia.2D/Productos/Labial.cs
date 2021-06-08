@@ -19,11 +19,19 @@ namespace Productos
         private const int minutos = 3;//3 minutos por labial
         private Tipo tipo;
 
+        /// <summary>
+        /// Constructor por defecto de Labial
+        /// </summary>
         public Labial()
         {
 
         }
 
+        /// <summary>
+        /// Constructor de labial con color y tipo a asignar
+        /// </summary>
+        /// <param name="color">Color a asignar</param>
+        /// <param name="tipo">Tipo a asignar</param>
         public Labial(ConsoleColor color, Tipo tipo)
             : base(minutos)
         {
@@ -31,22 +39,39 @@ namespace Productos
             this.tipo = tipo;
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura de color
+        /// </summary>
         public ConsoleColor Color
         {
             get
             {
                 return this.color;
+            }set
+            {
+                this.color = value;
             }
         }
 
+
+        /// <summary>
+        /// Propiedad de lectura y escritura del atributo tipo de Labial
+        /// </summary>
         public Tipo TipoLabial
         {
             get
             {
                 return this.tipo;
+            }set
+            {
+                this.TipoLabial = value;
             }
         }
 
+        /// <summary>
+        /// Recopila los datos de Labial
+        /// </summary>
+        /// <returns>Cadena con la información de Labial</returns>
         public override string Informe()
         {
             StringBuilder sb = new StringBuilder();
@@ -56,6 +81,10 @@ namespace Productos
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Clona un Labial
+        /// </summary>
+        /// <returns>Objeto clonado casteado a Labial</returns>
         public override object Clone()
         {
             return new Labial(this.color,this.tipo);
