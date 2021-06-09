@@ -1,7 +1,7 @@
 ﻿
 namespace Forms
 {
-    partial class FormPedidoPorMayor
+    partial class FrmPedidoPorMayor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPedidoPorMayor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidoPorMayor));
             this.label1 = new System.Windows.Forms.Label();
             this.lblRimel = new System.Windows.Forms.Label();
             this.lblLabial = new System.Windows.Forms.Label();

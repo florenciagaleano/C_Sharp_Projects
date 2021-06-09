@@ -40,7 +40,7 @@ namespace TestsUnitarios
         }
 
         [TestMethod]
-        public void Agrega_Productos_A_La_Misma_Jornada()
+        public void Agrega_Productos_A_La_Misma_Jornada_Si_Hay_Tiempo()
         {
             List<Producto> lista = new List<Producto>();
             Fabrica f = new Fabrica(100);

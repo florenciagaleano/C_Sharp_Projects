@@ -46,34 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormMenu.cs">
+    <Compile Include="FrmFabricar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
+    <Compile Include="FrmFabricar.Designer.cs">
+      <DependentUpon>FrmFabricar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidoPorMayor.cs">
+    <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPedidoPorMayor.Designer.cs">
-      <DependentUpon>FormPedidoPorMayor.cs</DependentUpon>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidoPorMenor.cs">
+    <Compile Include="FrmPedidoPorMayor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPedidoPorMenor.Designer.cs">
-      <DependentUpon>FormPedidoPorMenor.cs</DependentUpon>
+    <Compile Include="FrmPedidoPorMayor.Designer.cs">
+      <DependentUpon>FrmPedidoPorMayor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPedidoPorMenor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPedidoPorMenor.Designer.cs">
+      <DependentUpon>FrmPedidoPorMenor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmFabricar.resx">
+      <DependentUpon>FrmFabricar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidoPorMayor.resx">
-      <DependentUpon>FormPedidoPorMayor.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidoPorMenor.resx">
-      <DependentUpon>FormPedidoPorMenor.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPedidoPorMayor.resx">
+      <DependentUpon>FrmPedidoPorMayor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidoPorMenor.resx">
+      <DependentUpon>FrmPedidoPorMenor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

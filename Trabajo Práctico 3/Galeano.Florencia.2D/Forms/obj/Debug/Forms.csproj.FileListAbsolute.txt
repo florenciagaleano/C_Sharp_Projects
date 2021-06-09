@@ -7,9 +7,6 @@ C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Pr
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.csproj.CoreCompileInputs.cache
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.exe
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.pdb
-C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FormMenu.resources
-C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FormPedidoPorMayor.resources
-C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FormPedidoPorMenor.resources
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\bin\Debug\Fabricacion.dll
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\bin\Debug\Productos.dll
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\bin\Debug\Archivos.dll
@@ -19,3 +16,7 @@ C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Pr
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\bin\Debug\Archivos.pdb
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\bin\Debug\Excepciones.pdb
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FrmFabricar.resources
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FrmMenu.resources
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FrmPedidoPorMayor.resources
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\Forms\obj\Debug\Forms.FrmPedidoPorMenor.resources

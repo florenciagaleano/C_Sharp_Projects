@@ -133,12 +133,12 @@ namespace Fabricacion
 
         public static void IniciarFabricacion(Fabrica f)
         {
-            Fabrica.Fabricar(f);
+            int ret =  Fabrica.Fabricar(f);
             Fabrica.Envasar(f);
             Fabrica.Distribuir(f);
         }
 
-        public static int Fabricar(Fabrica f)//no deberia ser int mañana veo
+        public static int Fabricar(Fabrica f)
         {
             DateTime fecha = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             Jornada j = f + new Jornada(fecha, f.cantidadTrabajadores);
@@ -203,7 +203,7 @@ namespace Fabricacion
             return contador;
         }
 
-        public void ActualizarPendientes()
+        private void ActualizarPendientes()
         {
             DateTime fecha = new DateTime(DateTime.Now.AddDays(1).Year, DateTime.Now.AddDays(1).Month, DateTime.Now.AddDays(1).Day);
             Jornada j = this + new Jornada(fecha,this.cantidadTrabajadores);

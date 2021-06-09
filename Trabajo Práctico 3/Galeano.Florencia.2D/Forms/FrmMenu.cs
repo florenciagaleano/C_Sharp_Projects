@@ -11,12 +11,13 @@ using Fabricacion;
 
 namespace Forms
 {
-    public partial class FormMenu : Form
+    public partial class FrmMenu : Form
     {
         Fabrica fabrica;
-        public FormMenu()
+        public FrmMenu()
         {
             InitializeComponent();
+            this.fabrica = new Fabrica(100);//la fabrica tiene 100 trabajadores
         }
 
         private void btnHacerPedido_MouseMove(object sender, MouseEventArgs e)
@@ -63,11 +64,16 @@ namespace Forms
         {
             if((MessageBox.Show("Desea hacer un pedido por mayor?","PEDIDO",MessageBoxButtons.YesNo,MessageBoxIcon.Question)) == DialogResult.Yes)
             {
-                new FormPedidoPorMayor(fabrica).ShowDialog();
+                new FrmPedidoPorMayor(fabrica).ShowDialog();
             }else
             {
-                new FormPedidoPorMenor().ShowDialog();
+                new FrmPedidoPorMenor(this.fabrica).ShowDialog();
             }
+        }
+
+        private void btnProcesosFabrica_Click(object sender, EventArgs e)
+        {
+            new FrmFabricar(this.fabrica).ShowDialog();
         }
     }
 }

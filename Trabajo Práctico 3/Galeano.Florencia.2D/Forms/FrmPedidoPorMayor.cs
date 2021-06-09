@@ -12,10 +12,10 @@ using Fabricacion;
 
 namespace Forms
 {
-    public partial class FormPedidoPorMayor : Form
+    public partial class FrmPedidoPorMayor : Form
     {
         Fabrica fabrica;
-        public FormPedidoPorMayor(Fabrica fabrica)
+        public FrmPedidoPorMayor(Fabrica fabrica)
         {
             InitializeComponent();
             this.fabrica = fabrica;

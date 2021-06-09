@@ -1,7 +1,7 @@
 ﻿
 namespace Forms
 {
-    partial class FormMenu
+    partial class FrmMenu
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@ namespace Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnHacerPedido = new System.Windows.Forms.Button();
             this.btnConsultarJornadas = new System.Windows.Forms.Button();
@@ -92,6 +92,7 @@ namespace Forms
             this.btnProcesosFabrica.TabIndex = 9;
             this.btnProcesosFabrica.Text = "Procesos de la fábrica";
             this.btnProcesosFabrica.UseVisualStyleBackColor = false;
+            this.btnProcesosFabrica.Click += new System.EventHandler(this.btnProcesosFabrica_Click);
             this.btnProcesosFabrica.MouseLeave += new System.EventHandler(this.btnProcesosFabrica_MouseLeave);
             this.btnProcesosFabrica.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnProcesosFabrica_MouseMove);
             // 
@@ -110,7 +111,7 @@ namespace Forms
             this.btnVerPendientes.MouseLeave += new System.EventHandler(this.btnVerPendientes_MouseLeave);
             this.btnVerPendientes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPendientes_MouseMove);
             // 
-            // FormMenu
+            // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +125,7 @@ namespace Forms
             this.Controls.Add(this.lblTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormMenu";
+            this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
