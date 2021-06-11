@@ -64,7 +64,9 @@ namespace Forms
             this.ClientSize = new System.Drawing.Size(574, 336);
             this.Controls.Add(this.btnFabricaar);
             this.Controls.Add(this.rtbInforme);
+            this.MaximizeBox = false;
             this.Name = "FrmFabricar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fabricar";
             this.ResumeLayout(false);
 

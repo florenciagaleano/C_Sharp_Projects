@@ -121,6 +121,10 @@ namespace Fabricacion
             return true;
         }
 
+        /// <summary>
+        /// Genera una informa resumido inidanco la cantidad de productos de cada tipo que se fabricaron
+        /// </summary>
+        /// <returns></returns>
         public string InformeResumido()
         {
             int contadorLabiales = 0;
@@ -155,11 +159,19 @@ namespace Fabricacion
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Sobrecarga que retorna el informe detallado
+        /// </summary>
+        /// <returns>Informe detallado</returns>
         public override string ToString()
         {
             return this.InformeDetallado();
         }
 
+        /// <summary>
+        /// Informe detallado de los productos fabricados
+        /// </summary>
+        /// <returns></returns>
         public string InformeDetallado()
         {
             StringBuilder sb = new StringBuilder();
@@ -174,21 +186,6 @@ namespace Fabricacion
 
             return sb.ToString();
         }
-
-        public bool GuardarInformeDetalladoXml()
-        {
-            Xml<Jornada> xml = new Xml<Jornada>();
-            string ruta = "Jornada" + DateTime.Now.ToString("dd'-'MM'-'yyyy");
-            return xml.Guardar(ruta, this);
-        }
-
-        public Jornada LeerInformeDetalladoXml()
-        {
-            Xml<Jornada> xml = new Xml<Jornada>();
-            string ruta = "Jornada" + DateTime.Now.ToString("dd'-'MM'-'yyyy");
-            return xml.Leer(ruta);
-        }
-
         
     }
 }

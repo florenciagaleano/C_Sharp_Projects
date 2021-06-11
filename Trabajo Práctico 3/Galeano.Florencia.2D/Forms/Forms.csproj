@@ -52,6 +52,12 @@
     <Compile Include="FrmFabricar.Designer.cs">
       <DependentUpon>FrmFabricar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActividad.Designer.cs">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,10 +76,19 @@
     <Compile Include="FrmPedidoPorMenor.Designer.cs">
       <DependentUpon>FrmPedidoPorMenor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPendientes.Designer.cs">
+      <DependentUpon>FrmPendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmFabricar.resx">
       <DependentUpon>FrmFabricar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActividad.resx">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
@@ -83,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPedidoPorMenor.resx">
       <DependentUpon>FrmPedidoPorMenor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPendientes.resx">
+      <DependentUpon>FrmPendientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{a7e677d5-133d-4de1-aff3-3b63ac3d6830}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fabricacion\Fabricacion.csproj">
       <Project>{9d0388b8-59f2-416b-8c27-f1fcb77c3e29}</Project>
       <Name>Fabricacion</Name>

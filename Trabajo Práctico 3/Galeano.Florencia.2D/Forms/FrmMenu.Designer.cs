@@ -71,12 +71,13 @@ namespace Forms
             this.btnConsultarJornadas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsultarJornadas.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarJornadas.ForeColor = System.Drawing.Color.LavenderBlush;
-            this.btnConsultarJornadas.Location = new System.Drawing.Point(99, 229);
+            this.btnConsultarJornadas.Location = new System.Drawing.Point(99, 274);
             this.btnConsultarJornadas.Name = "btnConsultarJornadas";
             this.btnConsultarJornadas.Size = new System.Drawing.Size(426, 48);
             this.btnConsultarJornadas.TabIndex = 8;
-            this.btnConsultarJornadas.Text = "Consultar jornadas";
+            this.btnConsultarJornadas.Text = "Actividad detallada";
             this.btnConsultarJornadas.UseVisualStyleBackColor = false;
+            this.btnConsultarJornadas.Click += new System.EventHandler(this.btnConsultarJornadas_Click);
             this.btnConsultarJornadas.MouseLeave += new System.EventHandler(this.btnConsultarJornadas_MouseLeave);
             this.btnConsultarJornadas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConsultarJornadas_MouseMove);
             // 
@@ -102,12 +103,13 @@ namespace Forms
             this.btnVerPendientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVerPendientes.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerPendientes.ForeColor = System.Drawing.Color.LavenderBlush;
-            this.btnVerPendientes.Location = new System.Drawing.Point(99, 292);
+            this.btnVerPendientes.Location = new System.Drawing.Point(99, 220);
             this.btnVerPendientes.Name = "btnVerPendientes";
             this.btnVerPendientes.Size = new System.Drawing.Size(426, 48);
             this.btnVerPendientes.TabIndex = 10;
             this.btnVerPendientes.Text = "Ver pendientes";
             this.btnVerPendientes.UseVisualStyleBackColor = false;
+            this.btnVerPendientes.Click += new System.EventHandler(this.btnVerPendientes_Click);
             this.btnVerPendientes.MouseLeave += new System.EventHandler(this.btnVerPendientes_MouseLeave);
             this.btnVerPendientes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPendientes_MouseMove);
             // 

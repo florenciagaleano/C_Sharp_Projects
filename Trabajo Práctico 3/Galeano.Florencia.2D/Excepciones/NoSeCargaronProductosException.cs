@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    public class NoSePuedenAgregarMasProductos : Exception
+    public class NoSeCargaronProductosException : Exception
     {
-        public NoSePuedenAgregarMasProductos(string mensaje)
+        public NoSeCargaronProductosException(string mensaje)
             :base(mensaje)
         {
 

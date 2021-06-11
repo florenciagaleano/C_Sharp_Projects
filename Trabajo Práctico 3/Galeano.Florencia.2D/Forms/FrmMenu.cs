@@ -17,7 +17,7 @@ namespace Forms
         public FrmMenu()
         {
             InitializeComponent();
-            this.fabrica = new Fabrica(100);//la fabrica tiene 100 trabajadores
+            this.fabrica = new Fabrica(50);//la fabrica tiene 50 trabajadores
         }
 
         private void btnHacerPedido_MouseMove(object sender, MouseEventArgs e)
@@ -74,6 +74,16 @@ namespace Forms
         private void btnProcesosFabrica_Click(object sender, EventArgs e)
         {
             new FrmFabricar(this.fabrica).ShowDialog();
+        }
+
+        private void btnVerPendientes_Click(object sender, EventArgs e)
+        {
+            new FrmPendientes(this.fabrica).ShowDialog();
+        }
+
+        private void btnConsultarJornadas_Click(object sender, EventArgs e)
+        {
+            new FrmActividad(this.fabrica).ShowDialog();
         }
     }
 }

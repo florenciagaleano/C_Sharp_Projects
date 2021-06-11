@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fabricacion;
+using Excepciones;
 
 namespace Forms
 {
@@ -22,11 +23,17 @@ namespace Forms
 
         private void btnFabricaar_Click(object sender, EventArgs e)
         {
-            Fabrica.IniciarFabricacion(this.fabrica);
-            this.rtbInforme.Text = this.fabrica.ToString();
-            if(this.fabrica.Jornadas.Count > 1)
+            try
             {
-                MessageBox.Show("Algunos productos no se llegaron a fabricar hoy, pero se agregaron a la planificación de mañana", "AVISO", MessageBoxButtons.OK);
+                Fabrica.IniciarFabricacion(this.fabrica);
+                this.rtbInforme.Text = this.fabrica.ToString();
+                if (this.fabrica.Jornadas.Count > 1)
+                {
+                    MessageBox.Show("Algunos productos no se llegaron a fabricar hoy, pero se agregaron a la planificación de mañana y a un archivo XML", "AVISO", MessageBoxButtons.OK);
+                }
+            }catch(NoSeCargaronProductosException ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -39,5 +46,6 @@ namespace Forms
         {
             this.ForeColor = Color.FromArgb(255,255,255);
         }
+
     }
 }

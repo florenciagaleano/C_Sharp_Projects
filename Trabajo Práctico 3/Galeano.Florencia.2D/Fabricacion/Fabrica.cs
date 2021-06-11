@@ -130,15 +130,30 @@ namespace Fabricacion
             return j;
         }
 
-
+        /// <summary>
+        /// Método estático que llama a todos los procesos de la fábrica
+        /// </summary>
+        /// <param name="f">Fábrica de la que se inician los procesos</param>
         public static void IniciarFabricacion(Fabrica f)
         {
-            int ret =  Fabrica.Fabricar(f);
-            Fabrica.Envasar(f);
-            Fabrica.Distribuir(f);
+            if(f.productos.Count > 0)
+            {
+                int ret = Fabrica.Fabricar(f);
+                Fabrica.Envasar(f);
+                Fabrica.Distribuir(f);
+            }else
+            {
+                throw new NoSeCargaronProductosException("Para iniciar la fabricación debe cargar al menos un producto");
+            }
         }
 
-        public static int Fabricar(Fabrica f)
+        /// <summary>
+        /// Se agregan los productos a la jornada del día y se cambia su estado a Fabricado
+        /// Si no se pueden agrgar más productos a la jornada se agrega otra jornada con la fecha del día siguiente
+        /// </summary>
+        /// <param name="f">Fabrica cuyos productos se fabrican</param>
+        /// <returns>La cantidad de productos que se fabricaron</returns>
+        private static int Fabricar(Fabrica f)
         {
             DateTime fecha = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             Jornada j = f + new Jornada(fecha, f.cantidadTrabajadores);
@@ -168,7 +183,12 @@ namespace Fabricacion
             return contador;
         }
 
-        public static int Envasar(Fabrica f)
+        /// <summary>
+        /// Si los productos están fabricados les asigna un vencimiento y cambia el estado a Envasado
+        /// </summary>
+        /// <param name="f">Fabrica cuyos productos se envasan</param>
+        /// <returns>La cantidad de productos envasados</returns>
+        private static int Envasar(Fabrica f)
         {
             int contador = 0;
             foreach (Producto p in f.productos)
@@ -188,7 +208,12 @@ namespace Fabricacion
             return contador;
         }
 
-        public static int Distribuir(Fabrica f)
+        /// <summary>
+        /// Si el producto está envasado cambia el estado a Entregado
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns>La cantidad de productos que se distribuyeron</returns>
+        private static int Distribuir(Fabrica f)
         {
             int contador = 0;
             foreach (Producto p in f.productos)
@@ -203,6 +228,9 @@ namespace Fabricacion
             return contador;
         }
 
+        /// <summary>
+        /// Actualiza a los pendientes y los agrega a la lista de una nueva jornada con la fecha del día siguiente
+        /// </summary>
         private void ActualizarPendientes()
         {
             DateTime fecha = new DateTime(DateTime.Now.AddDays(1).Year, DateTime.Now.AddDays(1).Month, DateTime.Now.AddDays(1).Day);
@@ -217,8 +245,13 @@ namespace Fabricacion
                 }
             }
 
+            this.GuardarPendientesXml();
         }
 
+        /// <summary>
+        /// Informe de la actividad de la fábrica
+        /// </summary>
+        /// <returns>Cadena con el informe</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -231,11 +264,21 @@ namespace Fabricacion
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Calcula vencimiento utilizando una fecha aleatoria
+        /// </summary>
+        /// <returns>El vencimiento</returns>
         private DateTime AsignarVencimiento()
         {
             return DateTime.Now.AddDays(new Random().Next(3 * 365));
         }
 
+        /// <summary>
+        /// Sobrecarga del operador == para ver si una fabrica contiene una jornada
+        /// </summary>
+        /// <param name="f">Fabrica</param>
+        /// <param name="j">Jornada cuya fecha se buscará</param>
+        /// <returns>True si ya hay una jornada con esa fecha y sino false</returns>
         public static bool operator ==(Fabrica f, Jornada j)
         {
             foreach (Jornada item in f.jornadas)
@@ -249,25 +292,44 @@ namespace Fabricacion
             return false;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador == para ver si una fabrica contiene una jornada
+        /// </summary>
+        /// <param name="f">Fabrica</param>
+        /// <param name="j">Jornada cuya fecha se buscará</param>
+        /// <returns>False si ya hay una jornada con esa fecha y sino true</returns>
         public static bool operator !=(Fabrica f, Jornada j)
         {
             return !(f == j);
         }
 
-        public bool GuardarPendientesTxt()
+        public bool GuardarPendientesXml()
         {
-            Texto<string> txt = new Texto<string>();
-            List<string> pendientes = new List<string>();
+            Xml<string> xml = new Xml<string>();
+            string pendientes = string.Empty;
 
             foreach (Producto item in this.productos)
             {
                 if(item.EstadoActual == Producto.Estado.Nuevo)
                 {
-                    pendientes.Add(item.Informe());
+                    pendientes += item.Informe();
                 }
             }
 
-            return txt.Guardar("Pendientes.txt", pendientes.ToString());
+            return xml.Guardar("Pendientes.xml", pendientes);
+        }
+
+        public string LeerPendientesXml()
+        {
+            Xml<string> xml = new Xml<string>();
+
+            return xml.Leer("Pendientes.xml");
+        }
+
+        public bool GuardarActividadTxt(string info)
+        {
+            Texto<string> txtFabrica = new Texto<string>();
+            return txtFabrica.Guardar("Actividad de la fábrica", info);
         }
     }
 }

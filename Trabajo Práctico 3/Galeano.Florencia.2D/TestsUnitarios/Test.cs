@@ -10,6 +10,9 @@ namespace TestsUnitarios
     [TestClass]
     public class Test
     {
+        /// <summary>
+        /// Testea que funcione el Setter de Rimel
+        /// </summary>
         [TestMethod]
         public void Asigna_Negro_Al_Rimel_Si_Color_Es_Invalido()
         {
@@ -18,6 +21,9 @@ namespace TestsUnitarios
             Assert.AreEqual(ConsoleColor.Black, rimel.Color);
         }
 
+        /// <summary>
+        /// Verifica que se lance una excepción al buscar una jornada inexistente
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(NoHayActividadEnEsaFechaException))]
         public void Excepcion_Al_Buscar_Jornada_Inexistente()
@@ -27,6 +33,21 @@ namespace TestsUnitarios
             Jornada j = f.Jornadas[f.BuscarIndiceJornadaPorFecha(fecha)];
         }
 
+        /// <summary>
+        /// Verifica que se lance una excepción si seintenta fabricar sin agregar productos
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(NoSeCargaronProductosException))]
+        public void Excepcion_Al_Fabricar_Sin_Productos()
+        {
+            Fabrica f = new Fabrica(100);
+
+            Fabrica.IniciarFabricacion(f);
+        }
+
+        /// <summary>
+        /// Verifica que si no se pueden agregar productos se agrega otra jornada a la lista de jornadas
+        /// </summary>
         [TestMethod]
         public void Agrega_Jornada_Si_No_Queda_Tiempo()
         {
@@ -39,6 +60,9 @@ namespace TestsUnitarios
             Assert.AreEqual(2, f.Jornadas.Count);
         }
 
+        /// <summary>
+        /// Verifica que si se hace un pedido después de fabricar los productos se agreguen A LA MISMA JORNADA
+        /// </summary>
         [TestMethod]
         public void Agrega_Productos_A_La_Misma_Jornada_Si_Hay_Tiempo()
         {

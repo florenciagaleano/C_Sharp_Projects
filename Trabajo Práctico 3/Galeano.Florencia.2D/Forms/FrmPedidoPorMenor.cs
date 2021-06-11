@@ -15,6 +15,11 @@ namespace Forms
     public partial class FrmPedidoPorMenor : Form
     {
         Fabrica fabrica;
+
+        /// <summary>
+        /// Constructor de Form
+        /// </summary>
+        /// <param name="fabrica">Fábrica en cuya lista de productos se agregarán los productos</param>
         public FrmPedidoPorMenor(Fabrica fabrica)
         {
             InitializeComponent();
@@ -22,6 +27,9 @@ namespace Forms
             this.fabrica = fabrica;
         }
 
+        /// <summary>
+        /// Método que se encarga de hacer invisibles todos los controles para que el usuario solo vea los delproducto que pide
+        /// </summary>
         private void PonerVisibleDeControlesEnFalse()
         {
             this.cmbEfecto.Visible = false;
@@ -31,6 +39,11 @@ namespace Forms
             this.nudBase.Visible = false;
         }
 
+        /// <summary>
+        /// Solo activa la visibilidad de los controles relacionados con Labial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void optLabial_CheckedChanged(object sender, EventArgs e)
         {
             PonerVisibleDeControlesEnFalse();
@@ -41,6 +54,11 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Solo activa la visibilidad de los controles relacionados con Rimel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void optRimel_CheckedChanged(object sender, EventArgs e)
         {
             PonerVisibleDeControlesEnFalse();
@@ -51,6 +69,11 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Solo activa la visibilidad de los controles relacionados con Base
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void optBase_CheckedChanged(object sender, EventArgs e)
         {
             PonerVisibleDeControlesEnFalse();
@@ -60,6 +83,11 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Cuando se carga el formulario se cargan los valores determinados en los ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormPedidoPorMenor_Load(object sender, EventArgs e)
         {
             this.cmbColorLabial.DataSource = Enum.GetValues(typeof(ConsoleColor));
@@ -68,6 +96,11 @@ namespace Forms
             this.cmbLabial.DataSource = Enum.GetValues(typeof(Labial.Tipo));
         }
 
+        /// <summary>
+        /// Cuando se clickea elboton Agregar los productos de agregan a la lista Productos de la fabrica
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if(this.optBase.Checked)
