@@ -303,6 +303,10 @@ namespace Fabricacion
             return !(f == j);
         }
 
+        /// <summary>
+        /// Guarda los productos pendientes de fabricar en formato XML
+        /// </summary>
+        /// <returns>Verdadero si se pudieron guardar y sino falso</returns>
         public bool GuardarPendientesXml()
         {
             Xml<string> xml = new Xml<string>();
@@ -319,6 +323,10 @@ namespace Fabricacion
             return xml.Guardar("Pendientes.xml", pendientes);
         }
 
+        /// <summary>
+        /// Lee los pendientes que están guardados
+        /// </summary>
+        /// <returns>Cadena de texto con la información del archivo</returns>
         public string LeerPendientesXml()
         {
             Xml<string> xml = new Xml<string>();
@@ -326,10 +334,15 @@ namespace Fabricacion
             return xml.Leer("Pendientes.xml");
         }
 
+        /// <summary>
+        /// Guarda la actividad de la fánrica de acuerdo a lo pasado por parámetro
+        /// </summary>
+        /// <param name="info">nfor de la actividad a guardar (puede ser labiales,rímeles o bases)</param>
+        /// <returns>True si se pudo guardar y sino false</returns>
         public bool GuardarActividadTxt(string info)
         {
             Texto<string> txtFabrica = new Texto<string>();
-            return txtFabrica.Guardar("Actividad de la fábrica", info);
+            return txtFabrica.Guardar("Actividad de la fábrica.txt", info);
         }
     }
 }

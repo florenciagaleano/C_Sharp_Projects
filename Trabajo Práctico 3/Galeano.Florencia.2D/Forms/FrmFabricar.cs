@@ -15,12 +15,22 @@ namespace Forms
     public partial class FrmFabricar : Form
     {
         private Fabrica fabrica;
+
+        /// <summary>
+        /// Constructor del formulario
+        /// </summary>
+        /// <param name="fabrica"></param>
         public FrmFabricar(Fabrica fabrica)
         {
             InitializeComponent();
             this.fabrica = fabrica;
         }
 
+        /// <summary>
+        /// Al apretar este botón se inicia el proceso de fabricación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFabricaar_Click(object sender, EventArgs e)
         {
             try
@@ -37,11 +47,21 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Se cambia el color del botón
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFabricaar_MouseMove(object sender, MouseEventArgs e)
         {
             this.ForeColor = Color.FromArgb(182, 149, 192);
         }
 
+        /// <summary>
+        /// Se vuelve a cambiar el color del botón
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFabricaar_MouseLeave(object sender, EventArgs e)
         {
             this.ForeColor = Color.FromArgb(255,255,255);

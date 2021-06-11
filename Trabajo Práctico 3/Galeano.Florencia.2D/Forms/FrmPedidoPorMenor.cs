@@ -15,6 +15,7 @@ namespace Forms
     public partial class FrmPedidoPorMenor : Form
     {
         Fabrica fabrica;
+        List<Producto> listita;
 
         /// <summary>
         /// Constructor de Form
@@ -25,6 +26,7 @@ namespace Forms
             InitializeComponent();
             PonerVisibleDeControlesEnFalse();
             this.fabrica = fabrica;
+            listita = new List<Producto>();
         }
 
         /// <summary>
@@ -105,24 +107,33 @@ namespace Forms
         {
             if(this.optBase.Checked)
             {
-                this.fabrica.Productos.Add(new Base((int)this.nudBase.Value));
+                listita.Add(new Base((int)this.nudBase.Value));
                 MessageBox.Show("Base agregada al pedido");
             }
             else if(this.optLabial.Checked)
             {
-                this.fabrica.Productos.Add(new Labial((ConsoleColor)this.cmbColorLabial.SelectedValue,(Labial.Tipo)this.cmbLabial.SelectedValue));
+                listita.Add(new Labial((ConsoleColor)this.cmbColorLabial.SelectedValue,(Labial.Tipo)this.cmbLabial.SelectedValue));
                 MessageBox.Show("Labial agregado al pedido");
             }
             else if(this.optRimel.Checked)
             {
-                this.fabrica.Productos.Add(new Rimel((Rimel.Efecto)this.cmbEfecto.SelectedItem,(ConsoleColor)this.cmbColorRimel.SelectedItem));
+                listita.Add(new Rimel((Rimel.Efecto)this.cmbEfecto.SelectedItem,(ConsoleColor)this.cmbColorRimel.SelectedItem));
                 MessageBox.Show("Rimel agregado al pedido");
             }
             else
             {
                 MessageBox.Show("Debe seleccionar algún producto!");
             }
+        }
 
+        /// <summary>
+        /// Cuando se cierra el formulario se agrega la lista de productos generada a la lista de productos de la fábrica
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmPedidoPorMenor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.fabrica.HacerPedido(listita);
         }
     }
 }

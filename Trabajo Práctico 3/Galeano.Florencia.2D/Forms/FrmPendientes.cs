@@ -15,12 +15,22 @@ namespace Forms
     public partial class FrmPendientes : Form
     {
         Fabrica fabrica;
+
+        /// <summary>
+        /// Constructor del formulario
+        /// </summary>
+        /// <param name="f">Fabrica</param>
         public FrmPendientes(Fabrica f)
         {
             InitializeComponent();
             this.fabrica = f;
         }
 
+        /// <summary>
+        /// Se carga la info del archivo pendientes al RichTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPendientes_Load(object sender, EventArgs e)
         {
             try

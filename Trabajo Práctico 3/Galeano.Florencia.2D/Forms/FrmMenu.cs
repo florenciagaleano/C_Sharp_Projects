@@ -19,7 +19,8 @@ namespace Forms
             InitializeComponent();
             this.fabrica = new Fabrica(50);//la fabrica tiene 50 trabajadores
         }
-
+        /*********************************************************************/
+        /*Métodos creados para que al pararse en un botón el color cambie*/
         private void btnHacerPedido_MouseMove(object sender, MouseEventArgs e)
         {
             this.btnHacerPedido.BackColor = Color.FromArgb(255, 192, 203);
@@ -42,12 +43,12 @@ namespace Forms
 
         private void btnConsultarJornadas_MouseLeave(object sender, EventArgs e)
         {
-            this.btnConsultarJornadas.BackColor = Color.FromArgb(219, 112, 147);
+            this.btnVerActividad.BackColor = Color.FromArgb(219, 112, 147);
         }
 
         private void btnConsultarJornadas_MouseMove(object sender, MouseEventArgs e)
         {
-            this.btnConsultarJornadas.BackColor = Color.FromArgb(255, 192, 203);
+            this.btnVerActividad.BackColor = Color.FromArgb(255, 192, 203);
         }
 
         private void btnVerPendientes_MouseLeave(object sender, EventArgs e)
@@ -59,7 +60,13 @@ namespace Forms
         {
             this.btnVerPendientes.BackColor = Color.FromArgb(255, 192, 203);
         }
+        /************************************************************************/
 
+        /// <summary>
+        /// Si se decide hacer pedido por mayor se abre Form de pedido por mayor y sino el de pedido por menor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHacerPedido_Click(object sender, EventArgs e)
         {
             if((MessageBox.Show("Desea hacer un pedido por mayor?","PEDIDO",MessageBoxButtons.YesNo,MessageBoxIcon.Question)) == DialogResult.Yes)
@@ -71,17 +78,32 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Al cliclear en Procesos de fbábrica se abre FrmFabricar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProcesosFabrica_Click(object sender, EventArgs e)
         {
             new FrmFabricar(this.fabrica).ShowDialog();
         }
 
+        /// <summary>
+        /// Al cliclear en Ver pendientes se abre FrmPendientes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVerPendientes_Click(object sender, EventArgs e)
         {
             new FrmPendientes(this.fabrica).ShowDialog();
         }
 
-        private void btnConsultarJornadas_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Al clickear en Actividad detallada se abre un nuevo Form que muestra la actividad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVerActividad_Click(object sender, EventArgs e)
         {
             new FrmActividad(this.fabrica).ShowDialog();
         }

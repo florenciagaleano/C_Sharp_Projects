@@ -32,7 +32,7 @@ namespace Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnHacerPedido = new System.Windows.Forms.Button();
-            this.btnConsultarJornadas = new System.Windows.Forms.Button();
+            this.btnVerActividad = new System.Windows.Forms.Button();
             this.btnProcesosFabrica = new System.Windows.Forms.Button();
             this.btnVerPendientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -65,21 +65,21 @@ namespace Forms
             this.btnHacerPedido.MouseLeave += new System.EventHandler(this.btnHacerPedido_MouseLeave);
             this.btnHacerPedido.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnHacerPedido_MouseMove);
             // 
-            // btnConsultarJornadas
+            // btnVerActividad
             // 
-            this.btnConsultarJornadas.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.btnConsultarJornadas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultarJornadas.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarJornadas.ForeColor = System.Drawing.Color.LavenderBlush;
-            this.btnConsultarJornadas.Location = new System.Drawing.Point(99, 274);
-            this.btnConsultarJornadas.Name = "btnConsultarJornadas";
-            this.btnConsultarJornadas.Size = new System.Drawing.Size(426, 48);
-            this.btnConsultarJornadas.TabIndex = 8;
-            this.btnConsultarJornadas.Text = "Actividad detallada";
-            this.btnConsultarJornadas.UseVisualStyleBackColor = false;
-            this.btnConsultarJornadas.Click += new System.EventHandler(this.btnConsultarJornadas_Click);
-            this.btnConsultarJornadas.MouseLeave += new System.EventHandler(this.btnConsultarJornadas_MouseLeave);
-            this.btnConsultarJornadas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConsultarJornadas_MouseMove);
+            this.btnVerActividad.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnVerActividad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerActividad.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerActividad.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.btnVerActividad.Location = new System.Drawing.Point(99, 274);
+            this.btnVerActividad.Name = "btnVerActividad";
+            this.btnVerActividad.Size = new System.Drawing.Size(426, 48);
+            this.btnVerActividad.TabIndex = 8;
+            this.btnVerActividad.Text = "Actividad detallada";
+            this.btnVerActividad.UseVisualStyleBackColor = false;
+            this.btnVerActividad.Click += new System.EventHandler(this.btnVerActividad_Click);
+            this.btnVerActividad.MouseLeave += new System.EventHandler(this.btnConsultarJornadas_MouseLeave);
+            this.btnVerActividad.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConsultarJornadas_MouseMove);
             // 
             // btnProcesosFabrica
             // 
@@ -122,7 +122,7 @@ namespace Forms
             this.ClientSize = new System.Drawing.Size(625, 417);
             this.Controls.Add(this.btnVerPendientes);
             this.Controls.Add(this.btnProcesosFabrica);
-            this.Controls.Add(this.btnConsultarJornadas);
+            this.Controls.Add(this.btnVerActividad);
             this.Controls.Add(this.btnHacerPedido);
             this.Controls.Add(this.lblTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -139,7 +139,7 @@ namespace Forms
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnHacerPedido;
-        private System.Windows.Forms.Button btnConsultarJornadas;
+        private System.Windows.Forms.Button btnVerActividad;
         private System.Windows.Forms.Button btnProcesosFabrica;
         private System.Windows.Forms.Button btnVerPendientes;
     }

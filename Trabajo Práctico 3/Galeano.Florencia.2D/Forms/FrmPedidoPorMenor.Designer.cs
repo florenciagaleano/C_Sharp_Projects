@@ -180,7 +180,7 @@ namespace Forms
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // FormPedidoPorMenor
+            // FrmPedidoPorMenor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,9 +196,10 @@ namespace Forms
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormPedidoPorMenor";
+            this.Name = "FrmPedidoPorMenor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedido";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPedidoPorMenor_FormClosing);
             this.Load += new System.EventHandler(this.FormPedidoPorMenor_Load);
             this.pnlProductoSeleccionado.ResumeLayout(false);
             this.pnlProductoSeleccionado.PerformLayout();
