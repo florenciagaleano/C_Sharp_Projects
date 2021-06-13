@@ -107,23 +107,32 @@ namespace Forms
         {
             if(this.optBase.Checked)
             {
-                listita.Add(new Base((int)this.nudBase.Value));
-                MessageBox.Show("Base agregada al pedido");
+                this.Agregar(new Base((int)this.nudBase.Value), "Base agregada al pedido");
             }
             else if(this.optLabial.Checked)
             {
-                listita.Add(new Labial((ConsoleColor)this.cmbColorLabial.SelectedValue,(Labial.Tipo)this.cmbLabial.SelectedValue));
-                MessageBox.Show("Labial agregado al pedido");
+                this.Agregar(new Labial((ConsoleColor)this.cmbColorLabial.SelectedValue,(Labial.Tipo)this.cmbLabial.SelectedValue), "Labial agregado al pedido");
             }
             else if(this.optRimel.Checked)
             {
-                listita.Add(new Rimel((Rimel.Efecto)this.cmbEfecto.SelectedItem,(ConsoleColor)this.cmbColorRimel.SelectedItem));
-                MessageBox.Show("Rimel agregado al pedido");
+                this.Agregar(new Rimel((Rimel.Efecto)this.cmbEfecto.SelectedItem,(ConsoleColor)this.cmbColorRimel.SelectedItem), "Rimel agregado al pedido");
             }
             else
             {
                 MessageBox.Show("Debe seleccionar algún producto!");
             }
+        }
+
+        /// <summary>
+        /// Se agrega un producto alalista de productos y se muestra un mensaje
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="mensaje"></param>
+        private void Agregar(Producto p, string mensaje)
+        {
+            listita.Add(p);
+            MessageBox.Show(mensaje);
+           // this.Close();
         }
 
         /// <summary>

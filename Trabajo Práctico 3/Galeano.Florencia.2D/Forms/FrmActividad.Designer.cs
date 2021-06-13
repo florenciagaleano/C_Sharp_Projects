@@ -101,6 +101,7 @@ namespace Forms
             // 
             // btnVer
             // 
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVer.Location = new System.Drawing.Point(166, 248);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(447, 35);
@@ -108,9 +109,12 @@ namespace Forms
             this.btnVer.Text = "Ver actividad";
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            this.btnVer.MouseLeave += new System.EventHandler(this.btnVer_MouseLeave);
+            this.btnVer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVer_MouseMove);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(166, 289);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(447, 35);
@@ -118,6 +122,8 @@ namespace Forms
             this.btnGuardar.Text = "GuardarActividad";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
+            this.btnGuardar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnGuardar_MouseMove);
             // 
             // FrmActividad
             // 

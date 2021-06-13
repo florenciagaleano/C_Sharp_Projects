@@ -50,7 +50,7 @@ namespace Forms
             this.btnFabricaar.Name = "btnFabricaar";
             this.btnFabricaar.Size = new System.Drawing.Size(549, 26);
             this.btnFabricaar.TabIndex = 1;
-            this.btnFabricaar.Text = "INICIAR PROCESO DE FABRIACIÓN";
+            this.btnFabricaar.Text = "INICIAR PROCESO DE FABRICACIÓN";
             this.btnFabricaar.UseVisualStyleBackColor = true;
             this.btnFabricaar.Click += new System.EventHandler(this.btnFabricaar_Click);
             this.btnFabricaar.MouseLeave += new System.EventHandler(this.btnFabricaar_MouseLeave);

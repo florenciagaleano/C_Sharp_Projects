@@ -71,5 +71,25 @@ namespace Forms
         {
             this.fabrica.GuardarActividadTxt(this.richTextBox1.Text);
         }
+
+        private void btnVer_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.btnVer.BackColor = Color.LightGoldenrodYellow;
+        }
+
+        private void btnGuardar_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.btnGuardar.BackColor = Color.LightGoldenrodYellow;
+        }
+
+        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnGuardar.BackColor = Color.White;
+        }
+
+        private void btnVer_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnVer.BackColor = Color.White;
+        }
     }
 }

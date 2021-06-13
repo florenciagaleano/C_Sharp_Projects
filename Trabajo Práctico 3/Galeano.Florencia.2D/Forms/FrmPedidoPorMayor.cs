@@ -63,6 +63,7 @@ namespace Forms
             fabrica.HacerPedido(unaBase, (int)this.nudCantB.Value);
 
             MessageBox.Show("Pedido realizado con exito!", "PEDIDO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            this.Close();
         }
     }
 }
