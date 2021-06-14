@@ -44,6 +44,9 @@ namespace Forms
             }catch(NoSeCargaronProductosException ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }catch(ArchivoException)
+            {
+                MessageBox.Show("Quedaron productos pendientes. Hubo un error y no se pueden guardar en un archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

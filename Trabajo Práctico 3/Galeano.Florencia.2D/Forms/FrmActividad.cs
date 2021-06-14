@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fabricacion;
 using Productos;
+using Excepciones;
 
 namespace Forms
 {
@@ -69,7 +70,13 @@ namespace Forms
         /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.fabrica.GuardarActividadTxt(this.richTextBox1.Text);
+            try
+            {
+                this.fabrica.GuardarActividadTxt(this.richTextBox1.Text);
+            }catch(ArchivoException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnVer_MouseMove(object sender, MouseEventArgs e)

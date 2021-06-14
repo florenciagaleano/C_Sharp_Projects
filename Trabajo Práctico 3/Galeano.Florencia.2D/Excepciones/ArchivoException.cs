@@ -10,6 +10,7 @@ namespace Excepciones
     {
         /// <summary>
         /// Constructor de excepción ArchivoException
+        /// Esta excepcion se lanza si hay algun problema para leer o guardar archivos
         /// </summary>
         /// <param name="mensaje">Mensaje a mostrar</param>
         /// <param name="innerException">InnerException cuyo mensaje se concatenará almensaje pasado por parámetro</param>

@@ -36,7 +36,7 @@ namespace Forms
             try
             {
                 this.rtbPendientes.Text = fabrica.LeerPendientesXml();
-            }catch(ArchivoException ex)
+            }catch(ArchivoException)
             {
                 //MessageBox.Show(ex.Message);
                 this.Close();
