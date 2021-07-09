@@ -1,0 +1,16 @@
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\TestConsola.exe.config
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\TestConsola.exe
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\TestConsola.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Excepciones.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Fabricacion.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Productos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Archivos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Excepciones.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Fabricacion.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Productos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\bin\Debug\Archivos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\obj\Debug\TestConsola.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\obj\Debug\TestConsola.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\obj\Debug\TestConsola.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\obj\Debug\TestConsola.exe
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 3\Galeano.Florencia.2D\TestConsola\obj\Debug\TestConsola.pdb
