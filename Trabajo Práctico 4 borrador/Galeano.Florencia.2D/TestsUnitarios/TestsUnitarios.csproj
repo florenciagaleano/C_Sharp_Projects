@@ -64,10 +64,6 @@
       <Project>{9d0388b8-59f2-416b-8c27-f1fcb77c3e29}</Project>
       <Name>Fabricacion</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Productos\Productos.csproj">
-      <Project>{a4047c84-6d48-4d26-bf4f-a166181aa5d4}</Project>
-      <Name>Productos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -91,18 +91,19 @@ namespace Productos
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")} || ");
-            if (this.EstadoActual is Producto.Estado.Entregado)
+            switch(this.EstadoActual)
             {
-                sb.AppendLine("ENTREGADO");
-            }
-            else if (this.EstadoActual is Producto.Estado.Nuevo)
-            {
-                sb.AppendLine("NUEVO");
-            }
-            else
-            {
-                sb.AppendLine("FABRICADO SIN ENTREGAR");
+                case Estado.Entregado:
+                    sb.Append($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")} || ");
+                    sb.AppendLine("ENTREGADO");
+                    break;
+                case Estado.Nuevo:
+                    sb.AppendLine("NUEVO");
+                    break;
+                default:
+                    sb.Append($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")} || ");
+                    sb.AppendLine("FABRICADO SIN ENTREGAR");
+                    break;
             }
 
             return sb.ToString();

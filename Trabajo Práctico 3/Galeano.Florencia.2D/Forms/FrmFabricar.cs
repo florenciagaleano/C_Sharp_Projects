@@ -15,6 +15,7 @@ namespace Forms
     public partial class FrmFabricar : Form
     {
         private Fabrica fabrica;
+        private bool flag;
 
         /// <summary>
         /// Constructor del formulario
@@ -24,6 +25,7 @@ namespace Forms
         {
             InitializeComponent();
             this.fabrica = fabrica;
+            flag = false;
         }
 
         /// <summary>
@@ -36,10 +38,18 @@ namespace Forms
             try
             {
                 Fabrica.IniciarFabricacion(this.fabrica);
-                this.rtbInforme.Text = this.fabrica.ToString();
-                if (this.fabrica.Jornadas.Count > 1)
+                if(!flag)
                 {
-                    MessageBox.Show("Algunos productos no se llegaron a fabricar hoy, pero se agregaron a la planificación de mañana y a un archivo XML", "AVISO", MessageBoxButtons.OK);
+                    this.rtbInforme.Text = this.fabrica.ToString();
+                    if (this.fabrica.Jornadas.Count > 1)
+                    {
+                        MessageBox.Show("Algunos productos no se llegaron a fabricar hoy, pero se agregaron a la planificación de mañana y a un archivo XML", "AVISO", MessageBoxButtons.OK);
+                    }
+                    flag = true;
+                }
+                else
+                {
+                    MessageBox.Show("Ya no hay tiempo para seguir fabricando productos por hoy");
                 }
             }catch(NoSeCargaronProductosException ex)
             {

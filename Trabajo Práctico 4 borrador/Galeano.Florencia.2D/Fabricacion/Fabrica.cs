@@ -10,14 +10,13 @@ using System.Threading;
 
 namespace Fabricacion
 {
-    public delegate void DelegadoFabricar();
     public class Fabrica
     {
         private List<Producto> productos;
         private List<Jornada> jornadas;
         private int cantidadTrabajadores;
+        private List<Thread> hiloProductos;
 
-        public event DelegadoFabricar SimularFabricacion;
 
         /// <summary>
         /// Constructor por defecto de Fabrica
@@ -36,6 +35,7 @@ namespace Fabricacion
             this.productos = new List<Producto>();
             this.jornadas = new List<Jornada>();
             this.cantidadTrabajadores = trabajadores;
+            this.hiloProductos = new List<Thread>();
         }
 
         /// <summary>
@@ -138,24 +138,22 @@ namespace Fabricacion
         /// Método estático que llama a todos los procesos de la fábrica
         /// </summary>
         /// <param name="f">Fábrica de la que se inician los procesos</param>
-        public static void IniciarFabricacion(Fabrica f)
-        {
-            Random segundos = new Random();
+        //public static void IniciarFabricacion(Fabrica f)
+        //{
+        //    Random segundos = new Random();
 
-            if(f.productos.Count > 0)
-            {
-                int ret = Fabrica.Fabricar(f);
-                Thread.Sleep((int)segundos.Next(4000, 6000));//se pausa entre 4 y 6 segundos al fabricar
-                Fabrica.Envasar(f);
-                Thread.Sleep((int)segundos.Next(2000, 5000));//se pausa entre 2 y 5 segundos al fabricar
-                Fabrica.Distribuir(f);
-                Thread.Sleep((int)segundos.Next(2000, 6000));//se pausa entre 2 y 6 segundos al fabricar
-            }
-            else
-            {
-                throw new NoSeCargaronProductosException("Para iniciar la fabricación debe cargar al menos un producto");
-            }
-        }
+        //    if(f.productos.Count > 0)
+        //    {
+        //        foreach (Producto p in f.productos)
+        //        {
+        //            Fabrica.Fabricar(p,f);
+        //        }             
+        //    }
+        //    else
+        //    {
+        //        throw new NoSeCargaronProductosException("Para iniciar la fabricación debe cargar al menos un producto");
+        //    }
+        //}
 
         /// <summary>
         /// Se agregan los productos a la jornada del día y se cambia su estado a Fabricado
@@ -163,79 +161,41 @@ namespace Fabricacion
         /// </summary>
         /// <param name="f">Fabrica cuyos productos se fabrican</param>
         /// <returns>La cantidad de productos que se fabricaron</returns>
-        private static int Fabricar(Fabrica f)
+        public static void Fabricar(Producto p,Fabrica f)
         {
             DateTime fecha = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             Jornada j = f + new Jornada(fecha, f.cantidadTrabajadores);
-            int contador = 0;
             bool agregarJornada = false;
 
-            foreach (Producto p in f.productos)
+            if (f.productos.Count > 0)
             {
                 if (p.EstadoActual == Producto.Estado.Nuevo)
                 {
                     if (j + p)
                     {
-                        p.EstadoActual = Producto.Estado.Fabricado;
-                        contador++;
-                    }else
+                        p.Vencimiento = f.AsignarVencimiento();
+
+                        Thread hilo = new Thread(p.ActualizarEstados);
+                        f.hiloProductos.Add(hilo);
+                        hilo.Start();
+
+                    }
+                    else
                     {
                         agregarJornada = true;
                     }
                 }
             }
+            else
+            {
+                throw new NoSeCargaronProductosException("Para iniciar la fabricación debe cargar al menos un producto");
+            }
 
-            if(agregarJornada)
+            if (agregarJornada)
             {
                 f.ActualizarPendientes();
             }
 
-            return contador;
-        }
-
-        /// <summary>
-        /// Si los productos están fabricados les asigna un vencimiento y cambia el estado a Envasado
-        /// </summary>
-        /// <param name="f">Fabrica cuyos productos se envasan</param>
-        /// <returns>La cantidad de productos envasados</returns>
-        private static int Envasar(Fabrica f)
-        {
-            int contador = 0;
-            foreach (Producto p in f.productos)
-            {
-                if (p.EstadoActual is Producto.Estado.Fabricado)
-                {
-                    p.Vencimiento = f.AsignarVencimiento();
-                    if (p.Vencimiento > DateTime.Now)
-                    {
-                        contador++;
-                        p.EstadoActual = Producto.Estado.Envasado;
-                    }
-
-                }
-            }
-
-            return contador;
-        }
-
-        /// <summary>
-        /// Si el producto está envasado cambia el estado a Entregado
-        /// </summary>
-        /// <param name="f"></param>
-        /// <returns>La cantidad de productos que se distribuyeron</returns>
-        private static int Distribuir(Fabrica f)
-        {
-            int contador = 0;
-            foreach (Producto p in f.productos)
-            {
-                if (p.EstadoActual is Producto.Estado.Envasado)
-                {
-                    p.EstadoActual = Producto.Estado.Entregado;
-                    contador++;
-                }
-            }
-
-            return contador;
         }
 
         /// <summary>

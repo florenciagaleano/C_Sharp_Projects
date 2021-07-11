@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Fabricacion;
 using Excepciones;
 using Productos;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using System.Threading;
 
 namespace Forms
@@ -19,6 +18,7 @@ namespace Forms
     {
         private Fabrica fabrica;
         private bool flag;
+        List<Thread> hiloProductos;
 
         /// <summary>
         /// Constructor del formulario
@@ -29,6 +29,7 @@ namespace Forms
             InitializeComponent();
             this.fabrica = fabrica;
             flag = false;
+            this.hiloProductos = new List<Thread>();
         }
 
         /// <summary>
@@ -38,56 +39,58 @@ namespace Forms
         /// <param name="e"></param>
         private void btnFabricaar_Click(object sender, EventArgs e)
         {
-
-            try
+            if (!flag)
             {
-                Fabrica.IniciarFabricacion(this.fabrica);
-                if(!flag)
+                foreach (Producto producto in this.fabrica.Productos)
                 {
-                    Thread hilo = new Thread(MostrarProceso);
-                    hilo.Start();
-                    //this.MostrarProceso();
-                    if (this.fabrica.Jornadas.Count > 1)
-                    {
-                        MessageBox.Show("Algunos productos no se llegaron a fabricar hoy, pero se agregaron a la planificación de mañana y a un archivo XML", "AVISO", MessageBoxButtons.OK);
-                    }
-                    flag = true;
+                    this.listViewProductos.Items.Add(producto.Informe()).BackColor = Color.Red;
+                    producto.InformarEstado += this.producto_CambiarEstados;
+                    Fabrica.Fabricar(producto, this.fabrica);
                 }
-                else
-                {
-                    MessageBox.Show("Ya no hay tiempo para seguir fabricando productos por hoy");
-                }
-            }catch(NoSeCargaronProductosException ex)
-            {
-                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }catch(ArchivoException)
-            {
-                MessageBox.Show("Quedaron productos pendientes. Hubo un error y no se pueden guardar en un archivo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void MostrarProceso()
-        {
-            if(this.listViewProductos.InvokeRequired)
-            {
-
             }
             else
             {
-                Producto auxP;
-                for (int i = 0; i < this.fabrica.Productos.Count; i++)
+                MessageBox.Show("Ya no hay tiempo para seguir fabricando productos por hoy");
+            }
+        }
+
+        public void producto_CambiarEstados(object sender, EventArgs e)
+        {
+
+            if (this.InvokeRequired)
+            {
+                Producto.DelegadoEstado d = new Producto.DelegadoEstado(producto_CambiarEstados);
+                this.Invoke(d, new object[] { sender, e });
+            }
+            else
+            {
+                foreach (Producto item in this.fabrica.Productos)
                 {
-                    auxP = this.fabrica.Productos[i];
-                    listViewProductos.Items.Add(auxP.Informe());
-
-                    if (auxP is Labial)
+                    switch (item.EstadoActual)
                     {
-                        listViewProductos.Items[i].BackColor = Color.Pink;
-
+                        case Producto.Estado.Nuevo:
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Red;
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            break;
+                        case Producto.Estado.Fabricado:
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Orange;
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            break;
+                        case Producto.Estado.Envasado:
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Yellow;
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            break;
+                        case Producto.Estado.Entregado:
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.LightGreen;
+                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            break;
+                        default:
+                            break;  
                     }
                 }
             }
         }
+
 
         /// <summary>
         /// Se cambia el color del botón

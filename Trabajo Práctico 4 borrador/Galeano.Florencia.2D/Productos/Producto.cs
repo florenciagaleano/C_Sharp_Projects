@@ -4,14 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace Productos
 {
+
     [XmlInclude(typeof(Labial))]
     [XmlInclude(typeof(Rimel))]
     [XmlInclude(typeof(Base))]
     public abstract class Producto : ICloneable
     {
+        public delegate void DelegadoEstado(object sender, EventArgs e);
+
+        public event DelegadoEstado InformarEstado;
+        public event Fab
+
         public enum Estado
         {
             Nuevo,
@@ -114,5 +121,38 @@ namespace Productos
         /// </summary>
         /// <returns></returns>
         public abstract object Clone();
+
+        public void ActualizarEstados()
+        {
+            Random r = new Random();
+
+            while(this.EstadoActual != Estado.Entregado)
+            {
+                switch (this.EstadoActual)
+                {
+                    case Estado.Nuevo:
+                        Thread.Sleep(r.Next(3000, 6000));
+                        this.EstadoActual = Estado.Fabricado;
+                        this.InformaEstado.Invoke(this);
+                        break;
+                    case Estado.Fabricado:
+                        Thread.Sleep(r.Next(3000, 6000));
+                        this.EstadoActual = Estado.Envasado;
+                        this.InformaEstado.Invoke(this);
+                        break;
+                    case Estado.Envasado:
+                        Thread.Sleep(r.Next(3000, 6000));
+                        this.EstadoActual = Estado.Entregado;
+                        this.InformaEstado.Invoke(this);
+                        break;
+                    case Estado.Entregado:
+                        Thread.Sleep(r.Next(3000, 6000));
+                        this.EstadoActual = Estado.Entregado;
+                        this.InformaEstado.Invoke(this);
+                        break;
+                }
+            }
+
+        }
     }
 }

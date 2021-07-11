@@ -1,0 +1,12 @@
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Fabricacion.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Fabricacion.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Archivos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Excepciones.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Archivos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Archivos.dll.config
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\bin\Release\Excepciones.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\obj\Release\Fabricacion.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\obj\Release\Fabricacion.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\obj\Release\Fabricacion.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\obj\Release\Fabricacion.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Fabricacion\obj\Release\Fabricacion.pdb

@@ -1,0 +1,10 @@
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\bin\Release\Archivos.dll.config
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\bin\Release\Archivos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\bin\Release\Archivos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\bin\Release\Excepciones.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\bin\Release\Excepciones.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\obj\Release\Archivos.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\obj\Release\Archivos.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\obj\Release\Archivos.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\obj\Release\Archivos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador\Galeano.Florencia.2D\Archivos\obj\Release\Archivos.pdb
