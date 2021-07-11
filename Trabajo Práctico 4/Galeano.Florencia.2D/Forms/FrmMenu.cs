@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fabricacion;
+using Archivos;
+using Productos;
 
 namespace Forms
 {
@@ -106,6 +108,20 @@ namespace Forms
         private void btnVerActividad_Click(object sender, EventArgs e)
         {
             new FrmActividad(this.fabrica).ShowDialog();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            this.fabrica.Productos = DAO.LeerActividad();
+        }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Producto item in this.fabrica.Productos)
+            {
+                DAO.Guardar(item);
+                item.EstaEnSql = true;
+            }
         }
     }
 }

@@ -39,3 +39,17 @@ C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Pr
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.csproj.CopyComplete
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.dll
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Fabricacion.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Fabricacion.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Archivos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Excepciones.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Productos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Archivos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Archivos.dll.config
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Excepciones.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\bin\Debug\Productos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.csproj.CopyComplete
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Fabricacion\obj\Debug\Fabricacion.pdb

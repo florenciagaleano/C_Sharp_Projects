@@ -57,6 +57,10 @@
       <Project>{a7e677d5-133d-4de1-aff3-3b63ac3d6830}</Project>
       <Name>Excepciones</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Productos\Productos.csproj">
+      <Project>{a4047c84-6d48-4d26-bf4f-a166181aa5d4}</Project>
+      <Name>Productos</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -16,3 +16,9 @@ C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Pr
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Productos\obj\Debug\Productos.csproj.CoreCompileInputs.cache
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Productos\obj\Debug\Productos.dll
 C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4 borrador - copia\Galeano.Florencia.2D\Productos\obj\Debug\Productos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\bin\Debug\Productos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\bin\Debug\Productos.pdb
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\obj\Debug\Productos.csprojAssemblyReference.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\obj\Debug\Productos.csproj.CoreCompileInputs.cache
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\obj\Debug\Productos.dll
+C:\Users\Flia. Galeano\Desktop\tps labo 2\tps labo 2\tp_laboratorio_2\Trabajo Práctico 4\Galeano.Florencia.2D\Productos\obj\Debug\Productos.pdb

@@ -64,25 +64,25 @@ namespace Forms
             }
             else
             {
-                foreach (Producto item in this.fabrica.Productos)
+                for(int i=0; i<fabrica.Productos.Count;i++)
                 {
-                    switch (item.EstadoActual)
+                    switch (this.fabrica.Productos[i].EstadoActual)
                     {
                         case Producto.Estado.Nuevo:
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Red;
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            this.listViewProductos.Items[i].BackColor = Color.Red;
+                            this.listViewProductos.Items[i].Text = this.fabrica.Productos[i].Informe();
                             break;
                         case Producto.Estado.Fabricado:
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Orange;
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            this.listViewProductos.Items[i].BackColor = Color.Orange;
+                            this.listViewProductos.Items[i].Text = this.fabrica.Productos[i].Informe();
                             break;
                         case Producto.Estado.Envasado:
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.Yellow;
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            this.listViewProductos.Items[i].BackColor = Color.Yellow;
+                            this.listViewProductos.Items[i].Text = this.fabrica.Productos[i].Informe();
                             break;
                         case Producto.Estado.Entregado:
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].BackColor = Color.LightGreen;
-                            this.listViewProductos.Items[this.listViewProductos.Items.Count - 1].Text = item.Informe();
+                            this.listViewProductos.Items[i].BackColor = Color.LightGreen;
+                            this.listViewProductos.Items[i].Text = this.fabrica.Productos[i].Informe();
                             break;
                         default:
                             break;
@@ -112,5 +112,9 @@ namespace Forms
             this.ForeColor = Color.FromArgb(255,255,255);
         }
 
+        private void FrmFabricar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Fabrica.CerrarFabrica(this.fabrica);
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace Productos
         private DateTime vencimiento;
         private int minutosPorUnidad;
         private Estado estado;
+        private bool estaEnSql;
 
         /// <summary>
         /// Constructor por defecto de Producto
@@ -47,7 +48,11 @@ namespace Productos
         {
             this.minutosPorUnidad = minutos;
             this.estado = Estado.Nuevo;
+            this.estaEnSql = false; //todavia no esta en la base de datos
         }
+
+        [XmlIgnore]
+        public bool EstaEnSql { get; set; }
 
         /// <summary>
         /// Propiedad de lectura de minutos por unidad
@@ -107,9 +112,12 @@ namespace Productos
                 case Estado.Nuevo:
                     sb.AppendLine("NUEVO");
                     break;
+                case Estado.Envasado:
+                    sb.AppendLine("ENVASADO");
+                    break;
                 default:
                     sb.Append($"Vencimiento: {this.vencimiento.ToString("dd/MM/yy")} || ");
-                    sb.AppendLine("FABRICADO SIN ENTREGAR");
+                    sb.AppendLine("FABRICADO");
                     break;
             }
 

@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{0cd22d08-bd7c-407a-9fdc-3fdd76325ed8}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
       <Project>{a7e677d5-133d-4de1-aff3-3b63ac3d6830}</Project>
       <Name>Excepciones</Name>

@@ -177,6 +177,21 @@ namespace Fabricacion
 
         }
 
+        public static void CerrarFabrica(Fabrica f)
+        {
+            if (f != null)
+            {
+                foreach (Thread thread in f.hiloProductos)
+                {
+                    if(thread != null && thread.IsAlive)
+                    {
+                        thread.Abort();
+                    }
+
+                }
+            }
+        }
+
         /// <summary>
         /// Actualiza a los pendientes y los agrega a la lista de una nueva jornada con la fecha del día siguiente
         /// </summary>
@@ -230,11 +245,14 @@ namespace Fabricacion
         /// <returns>True si ya hay una jornada con esa fecha y sino false</returns>
         public static bool operator ==(Fabrica f, Jornada j)
         {
-            foreach (Jornada item in f.jornadas)
+            if(j != null && f != null)
             {
-                if (item.Fecha.Day == j.Fecha.Day && item.Fecha.Month == j.Fecha.Month && item.Fecha.Year == j.Fecha.Year)
+                foreach (Jornada item in f.jornadas)
                 {
-                    return true;
+                    if (item.Fecha.Day == j.Fecha.Day && item.Fecha.Month == j.Fecha.Month && item.Fecha.Year == j.Fecha.Year)
+                    {
+                        return true;
+                    }
                 }
             }
 

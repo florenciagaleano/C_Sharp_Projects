@@ -78,6 +78,7 @@ namespace Forms
             this.Name = "FrmFabricar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fabricar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFabricar_FormClosing);
             this.ResumeLayout(false);
 
         }
