@@ -10,7 +10,7 @@ using Productos;
 
 namespace Archivos
 {
-        //    CREATE DATABASE[MAKEUP - FACTORY - TP4]
+        //CREATE DATABASE[MAKEUP - FACTORY - TP4]
         //GO
         //USE[MAKEUP - FACTORY - TP4]
         //GO
@@ -49,15 +49,40 @@ namespace Archivos
     {
         private static string cadenaConexion = "Server = .;Database = MAKEUP-FACTORY-TP4; Trusted_Connection = true;";
 
-        /// <summary>
-        /// Lee la actividad de las 3 tablas de la base de datos de la fábrica
-        /// </summary>
-        /// <returns>Lista con todos los productos cargados en la base</returns>
-        public static List<Producto> LeerActividad()
+        private static List<Labial> LeerLabiales()
         {
             SqlConnection connection = new SqlConnection(DAO.cadenaConexion);
-            List<Producto> productos = new List<Producto>();
+            string consulta = "SELECT estado,tipo,color,vencimiento FROM dbo.labial";
+            List<Labial> productos = new List<Labial>();
+
+            connection.Open();
+
+
+            SqlCommand comando = new SqlCommand(consulta, connection);
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Labial aux = new Labial((ConsoleColor)(int)reader["color"], (Labial.Tipo)(int)reader["tipo"]);
+                aux.Vencimiento = (DateTime)reader["vencimiento"];
+                aux.EstadoActual = (Producto.Estado)(int)reader["estado"];
+                productos.Add(aux);
+
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return productos;
+        }
+
+        private static List<Base> LeerBases()
+        {
+            SqlConnection connection = new SqlConnection(DAO.cadenaConexion);
             string consulta = "SELECT estado,tono,vencimiento FROM dbo.base";
+            List<Base> productos = new List<Base>();
+
             connection.Open();
 
 
@@ -73,30 +98,47 @@ namespace Archivos
                 productos.Add(aux);
 
             }
-
-            consulta = "SELECT estado,tipo,color,vencimiento FROM dbo.labial";
-
-            while (reader.Read())
-            {
-                Labial aux = new Labial((ConsoleColor)(int)reader["color"], (Labial.Tipo)(int)reader["tipo"]);
-                aux.Vencimiento = (DateTime)reader["vencimiento"];
-                aux.EstadoActual = (Producto.Estado)(int)reader["estado"];
-                productos.Add(aux);
-
-            }
-
-            consulta = "SELECT estado,efecto,color,vencimiento FROM dbo.rimel";
-
-            while (reader.Read())
-            {
-                Rimel aux = new Rimel((Rimel.Efecto)(int)reader["efecto"],(ConsoleColor)(int)reader["color"]);
-                aux.Vencimiento = (DateTime)reader["vencimiento"];
-                aux.EstadoActual = (Producto.Estado)(int)reader["estado"];
-                productos.Add(aux);
-
-            }
-
             reader.Close();
+            connection.Close();
+            return productos;
+        }
+
+        private static List<Rimel> LeerRimels()
+        {
+            SqlConnection connection = new SqlConnection(DAO.cadenaConexion);
+            string consulta = "SELECT estado,efecto,color,vencimiento FROM dbo.rimel";
+            List<Rimel> productos = new List<Rimel>();
+
+            connection.Open();
+
+
+            SqlCommand comando = new SqlCommand(consulta, connection);
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Rimel aux = new Rimel((Rimel.Efecto)(int)reader["efecto"], (ConsoleColor)(int)reader["color"]);
+                aux.Vencimiento = (DateTime)reader["vencimiento"];
+                aux.EstadoActual = (Producto.Estado)(int)reader["estado"];
+                productos.Add(aux);
+            }
+            reader.Close();
+            connection.Close();
+            return productos;
+        }
+
+        /// <summary>
+        /// Lee la actividad de las 3 tablas de la base de datos de la fábrica
+        /// </summary>
+        /// <returns>Lista con todos los productos cargados en la base</returns>
+        public static List<Producto> LeerActividad()
+        {
+            List<Producto> productos = new List<Producto>();
+            productos.AddRange(LeerRimels());
+            productos.AddRange(LeerBases());
+            productos.AddRange(LeerLabiales());
+
             return productos;
         }
 

@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using Productos;
 using Excepciones;
 using Fabricacion;
+using System.Threading;
+using Archivos;
 
 namespace TestConsola
 {
     class Program
     {
+        static Fabrica f = new Fabrica(1);
+
         static void Main(string[] args)
         {
             Console.Title = "Galeano Florencia 2D";
-
-            Fabrica f = new Fabrica(5);
 
             try
             {
@@ -23,34 +25,57 @@ namespace TestConsola
                 Rimel rimel = new Rimel(Rimel.Efecto.Volumen);
                 Base producBase = new Base(100);
 
-                f.HacerPedido(producBase, 50);
-                f.HacerPedido(labial, 100); 
-                f.HacerPedido(rimel, 10);
-                Fabrica.IniciarFabricacion(f);
+                f.HacerPedido(labial, 2);
+                f.HacerPedido(rimel, 3);
                 /*---------------------------------------------------*/
                 List<Producto> lista = new List<Producto>();
                 lista.Add(new Labial(ConsoleColor.Black, Labial.Tipo.Gloss));
                 lista.Add(new Base(204));
-                f.HacerPedido(producBase, 250);//no se fabrican todas las bases en la misma jornada
+                f.HacerPedido(producBase, 5);
 
                 f.HacerPedido(lista);
 
-                Fabrica.IniciarFabricacion(f);
-            }catch(NoSeCargaronProductosException e)
+                foreach (Producto item in f.Productos)
+                {
+                    item.InformarEstado += Program.AuxHilos;
+                    Fabrica.Fabricar(item, f);
+                    DAO.Guardar(item);
+                }
+
+            }
+            catch (NoSeCargaronProductosException e)
             {
                 Console.WriteLine(e.Message);
             }
-            
+
+            Console.Clear();
             Console.WriteLine(f.ToString());
             Console.WriteLine("-----------------------------------------------------");
+
+
             if (f.GuardarActividadTxt(f.ToString()))
                 Console.WriteLine("Se guardo la actividad de la fabrica en un txt");
 
-            Console.WriteLine("-----------------------------------------------------");
-            Console.WriteLine("PENDIENTES:\n");
-            Console.WriteLine(f.LeerPendientesXml());//muestro de forma detallada los que quedaron como pendientes
+            //Console.WriteLine("-----------------------------------------------------");
+            //Console.WriteLine("PENDIENTES:\n");
+            //Console.WriteLine(f.LeerPendientesXml());//muestro de forma detallada los que quedaron como pendientes
+            Console.Clear();
+            Console.WriteLine("Leido desde la base de datos:");
+            foreach (Producto item in DAO.LeerActividad())
+            {
+                Console.WriteLine(item);
+            }
 
             Console.ReadKey();
+        }
+
+        static void AuxHilos(object sender, EventArgs e)
+        {
+            Console.Clear();
+            foreach (Producto item in f.Productos)
+            {
+                Console.WriteLine(item.Informe());
+            }
         }
     }
 }

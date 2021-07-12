@@ -43,9 +43,12 @@ namespace Forms
             {
                 foreach (Producto producto in this.fabrica.Productos)
                 {
-                    this.listViewProductos.Items.Add(producto.Informe()).BackColor = Color.Red;
-                    producto.InformarEstado += this.producto_CambiarEstados;
-                    Fabrica.Fabricar(producto, this.fabrica);
+                    if(producto.EstadoActual != Producto.Estado.Entregado)//si esta en sql ya se entrego
+                    {
+                        this.listViewProductos.Items.Add(producto.Informe()).BackColor = Color.Red;
+                        producto.InformarEstado += this.producto_CambiarEstados;
+                        Fabrica.Fabricar(producto, this.fabrica);
+                    }
                 }
             }
             else

@@ -115,12 +115,20 @@ namespace Forms
             this.fabrica.Productos = DAO.LeerActividad();
         }
 
+        /// <summary>
+        /// Cuando se cierra el form guardo los productos que se llegaron a entregar en una base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (Producto item in this.fabrica.Productos)
             {
-                DAO.Guardar(item);
-                item.EstaEnSql = true;
+                if(item.EstadoActual == Producto.Estado.Entregado)
+                {
+                    DAO.Guardar(item);
+                    item.EstaEnSql = true;
+                }
             }
         }
     }
