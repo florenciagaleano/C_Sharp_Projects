@@ -48,7 +48,7 @@ namespace Productos
         {
             this.minutosPorUnidad = minutos;
             this.estado = Estado.Nuevo;
-            this.estaEnSql = false; //todavia no esta en la base de datos
+            this.estaEnSql = true; //todavia no esta en la base de datos
         }
 
         [XmlIgnore]
@@ -130,6 +130,10 @@ namespace Productos
         /// <returns></returns>
         public abstract object Clone();
 
+        /// <summary>
+        /// Va actualizando el estado de un producto mientras no sea Entregado 
+        /// e invocando al evento que informa el estado para que se vea el proceso de fabricación
+        /// </summary>
         public void ActualizarEstados()
         {
             Random r = new Random();

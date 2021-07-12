@@ -135,11 +135,11 @@ namespace Fabricacion
         }
 
         /// <summary>
-        /// Se agregan los productos a la jornada del día y se cambia su estado a Fabricado
-        /// Si no se pueden agrgar más productos a la jornada se agrega otra jornada con la fecha del día siguiente
+        /// Fabrica el producto pasado por parámetro, si no hay tiempo en la jornada para fabricaarlo agrega otra jornada y el producto queda como pendiente
+        /// Si hay tiempo se genera un hilo que va actualizando el estado del producto
         /// </summary>
-        /// <param name="f">Fabrica cuyos productos se fabrican</param>
-        /// <returns>La cantidad de productos que se fabricaron</returns>
+        /// <param name="p"></param>
+        /// <param name="f"></param>
         public static void Fabricar(Producto p, Fabrica f)
         {
             DateTime fecha = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -148,6 +148,7 @@ namespace Fabricacion
 
             if (f.productos.Count > 0)
             {
+                p.EstaEnSql = false;
                 if (p.EstadoActual == Producto.Estado.Nuevo)
                 {
                     if (j + p)

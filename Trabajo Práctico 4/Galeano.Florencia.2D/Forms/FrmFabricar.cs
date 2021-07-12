@@ -34,6 +34,8 @@ namespace Forms
 
         /// <summary>
         /// Al apretar este botón se inicia el proceso de fabricación
+        /// También se recorre la lista de productos de la fábrica y se suscribe al método que actualiza los estados
+        /// al evento InformarEstado para que se pueda ir visualizando el proceso de fabricación
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -43,7 +45,7 @@ namespace Forms
             {
                 foreach (Producto producto in this.fabrica.Productos)
                 {
-                    if(producto.EstadoActual != Producto.Estado.Entregado)//si esta en sql ya se entrego
+                    if(producto.EstadoActual != Producto.Estado.Entregado)
                     {
                         this.listViewProductos.Items.Add(producto.Informe()).BackColor = Color.Red;
                         producto.InformarEstado += this.producto_CambiarEstados;
@@ -57,6 +59,11 @@ namespace Forms
             }
         }
 
+        /// <summary>
+        /// Cambia el color y texto de los items de la ViewList de acuerdo al estado del producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void producto_CambiarEstados(object sender, EventArgs e)
         {
 

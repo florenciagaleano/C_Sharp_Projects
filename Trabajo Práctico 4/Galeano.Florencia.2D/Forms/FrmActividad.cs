@@ -28,14 +28,16 @@ namespace Forms
         }
 
         /// <summary>
-        /// Cuando se clickea en Ver se muestra la info de los productos seleccionados
+        /// Cuando se clickea en Ver se muestra la info de los productos seleccionados y un mensaje que infora la cantidad de entregados
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnVer_Click(object sender, EventArgs e)
         {
-            this.richTextBox1.Text = "";//borro loq ue había cargado de antes
+            this.richTextBox1.Text = "";//borro lo que había cargado de antes
             this.richTextBox1.Text = InfoAMostrar();
+
+            MessageBox.Show($"Hasta ahora hay fabricados y entregados {this.fabrica.CantidadDeProductosEntregados()} productos");
         }
 
         /// <summary>

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Fabrica.cs" />
     <Compile Include="Jornada.cs" />
+    <Compile Include="MetodoDeExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

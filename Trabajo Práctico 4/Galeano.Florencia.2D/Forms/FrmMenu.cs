@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Fabricacion;
 using Archivos;
 using Productos;
+using Excepciones;
 
 namespace Forms
 {
@@ -112,7 +113,13 @@ namespace Forms
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            this.fabrica.Productos = DAO.LeerActividad();
+            try
+            {
+                this.fabrica.Productos = DAO.LeerActividad();
+            }catch(ArchivoException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -122,13 +129,20 @@ namespace Forms
         /// <param name="e"></param>
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (Producto item in this.fabrica.Productos)
+            try
             {
-                if(item.EstadoActual == Producto.Estado.Entregado)
+                foreach (Producto item in this.fabrica.Productos)
                 {
-                    DAO.Guardar(item);
-                    item.EstaEnSql = true;
+                    if (item.EstadoActual == Producto.Estado.Entregado)
+                    {
+                        DAO.Guardar(item);
+                        item.EstaEnSql = true;
+                    }
                 }
+            }
+            catch(ArchivoException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

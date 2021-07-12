@@ -13,7 +13,7 @@ namespace TestConsola
 {
     class Program
     {
-        static Fabrica f = new Fabrica(1);
+        static Fabrica f = new Fabrica(10);
 
         static void Main(string[] args)
         {
@@ -47,6 +47,8 @@ namespace TestConsola
             {
                 Console.WriteLine(e.Message);
             }
+
+            Fabrica.CerrarFabrica(f);
 
             Console.Clear();
             Console.WriteLine(f.ToString());
